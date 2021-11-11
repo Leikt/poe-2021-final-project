@@ -1,4 +1,4 @@
-# Setup Git and Github
+# Configurer Git et Github
 Afin de versionner son projet, nous pouvons utiliser Git et GitHub. Le premier est un outil de versionnage, le second une plateforme de développement et de partage de code.
 ## Préparation
 - Installez le package `git`

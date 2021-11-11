@@ -1,2 +1,1 @@
-# poe-2021-final-project
-Final project repository, it contains documentation and text files
+See [https://github.com/Leikt/poe-2021-final-project/blob/development/documentation/home.md](https://github.com/Leikt/poe-2021-final-project/blob/development/documentation/home.md)

@@ -14,7 +14,7 @@ Présentation : 18 novembre 2021
 * Robin LIORET
 ### Principaux logiciels utilisés
 * Github : VCS, wiki
-* PyCharm : Edition des codes
+* PyCharm Community : Edition des codes ([Téléchargement](https://www.jetbrains.com/fr-fr/pycharm/download/))
 * VirtualBox : Machines virtuelles
 * Docker : gestion des containers
 * Discord : communication

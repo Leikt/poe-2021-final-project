@@ -17,10 +17,10 @@
     - name: installation de python3-pip
       package:
         name:
-          - python3-pip
+          - python-pip
         state: present
 
-    - name: installation module python boto
+    - name: installation du module python boto
       pip:
         name:
           - boto

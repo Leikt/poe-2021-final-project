@@ -3,8 +3,8 @@
   gather_facts: False
 
   vars:
-    access_key: "{{ lookup('file', ~/aws_access/access_key) }}"
-    secret_key: "{{ lookup('file', ~/aws_access/secret_key) }}"
+    access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
+    secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
     region: eu-central-1
     ssh_key: "~/.ssh/aws"
     vm_name: G4_PEO_

@@ -1,13 +1,12 @@
-- vars:
-    my_list:
-      - a
-      - b
-      - c
+- name: include provisionning variables
+  include_vars:
+    file: vars/main.yml
+    name: i
 
 - name: test looping
   debug:
     msg: "Loop on {{ item }} at index {{ index }}"
   loop:
-    - "{{ my_list }}"
+    - "{{ i.a_list }}"
   loop_control:
     index_var: index

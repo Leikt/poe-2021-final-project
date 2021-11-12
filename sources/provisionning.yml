@@ -6,11 +6,12 @@
   vars:
     access_key: "{{ lookup('file', '/home/sysadmin/aws_access/access_key') }}"
     secret_key: "{{ lookup('file', '/home/sysadmin/aws_access/secret_key') }}"
-    region: eu-central-1
+    region: sa-east-1a
     ssh_key: "/home/sysadmin/.ssh/aws"
     vm_name: G4_PEO_test
-    subnet_id: subnet-3ced7c56
-    image: ami-047e03b8591f2d48a
+    subnet_id: subnet-1ffc6979
+    image: ami-054cc430abebc4112
+    type: t2.micro
     private_key: "/home/sysadmin/.ssh/aws.pem"
     count: 1
 
@@ -38,7 +39,7 @@
       ec2:
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
-        instance_type: t2.micro
+        instance_type: "{{ type }}"
         image: "{{ image }}"
         key_name: "{{ ssh_key }}"
         count: "{{ count }}"

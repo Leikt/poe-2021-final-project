@@ -1,6 +1,6 @@
 ---
-#- name: include provisionning variables
-#  include_vars: provisioning_vars.yml
+- name: include provisionning variables
+  include_vars: vars/all
 
 - name: debug disp
   debug:

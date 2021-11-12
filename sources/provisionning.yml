@@ -7,12 +7,12 @@
     access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
     secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
     region: sa-east-1
-    ssh_key: "/home/sysadmin/.ssh/aws"
+    ssh_key: "~/.ssh/aws"
     vm_name: G4_PEO_test
     subnet_id: subnet-1ffc6979
     image: ami-0b30f38d939dd4b54
     type: t2.micro
-    private_key: "/home/sysadmin/.ssh/aws.pem"
+    private_key: "~/.ssh/aws.pem"
     count: 1
 
   tasks:

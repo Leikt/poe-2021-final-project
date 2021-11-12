@@ -5,7 +5,7 @@
 
 - name: test looping
   debug:
-    msg: "Loop on {{ item }} at index {{ index }}"
+    msg: "Hostname: {{ item.hostname }}, Group: {{ item.group }}"
   loop: "{{ i.a_list }}"
   loop_control:
     index_var: index

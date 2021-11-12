@@ -6,7 +6,7 @@
 
 - name: debug disp
   debug:
-    msg: "A message"
+    msg: "A message {{ pro.region }}"
 #    - name: install python package boto and boto3
 #      pip:
 #        name:

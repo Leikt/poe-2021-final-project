@@ -2,48 +2,45 @@
 - name: include provisionning variables
   include_vars:
     file: vars/main.yml
-    name: pro
+    name: prov
 
-- name: debug disp
-  debug:
-    msg: "A message {{ pro.region }}"
-#    - name: install python package boto and boto3
-#      pip:
-#        name:
-#          - boto
-#          - boto3
-#        state: latest
-#
-#    - name: Creation de clef
-#      ec2_key:
-#        aws_access_key: "{{ access_key }}"
-#        aws_secret_key: "{{ secret_key }}"
-#        name: "{{ ssh_key }}"
-#        region: "{{ region }}"
-#      register: ec2_key_result
-#
-#    - name: Save private key
-#      copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ private_key }}" mode=0600
-#      when: ec2_key_result.changed
-#
-#    - name: Creation de l'instance
-#      ec2:
-#        aws_access_key: "{{ access_key }}"
-#        aws_secret_key: "{{ secret_key }}"
-#        instance_type: "{{ type }}"
-#        image: "{{ image }}"
-#        key_name: "{{ ssh_key }}"
-#        count: "{{ count }}"
-#        group: default
-#        region: "{{ region }}"
-#        wait: yes
-#        vpc_subnet_id: "{{ subnet_id }}"
-#        assign_public_ip: yes
-#        instance_tags:
-#           Name: "{{ vm_name }}"
-#      register: ec2
-#
-#    - name: Save info ec2
-#      copy: content="{{ ec2 }}" dest="~/details_ec2" mode=0755
-#      when: ec2.changed
+    - name: install python package boto and boto3
+      pip:
+        name:
+          - boto
+          - boto3
+        state: latest
+
+    - name: Creation de clef
+      ec2_key:
+        aws_access_key: "{{ prov.access_key }}"
+        aws_secret_key: "{{ prov.secret_key }}"
+        name: "{{ prov.ssh_key }}"
+        region: "{{ prov.region }}"
+      register: ec2_key_result
+
+    - name: Save private key
+      copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ prov.private_key }}" mode=0600
+      when: ec2_key_result.changed
+
+    - name: Creation de l'instance
+      ec2:
+        aws_access_key: "{{ prov.access_key }}"
+        aws_secret_key: "{{ prov.secret_key }}"
+        instance_type: "{{ prov.type }}"
+        image: "{{ prov.image }}"
+        key_name: "{{ prov.ssh_key }}"
+        count: "{{ prov.count }}"
+        group: default
+        region: "{{ prov.region }}"
+        wait: yes
+        vpc_subnet_id: "{{ prov.subnet_id }}"
+        assign_public_ip: yes
+        instance_tags:
+           Name: "{{ prov.vm_name }}"
+      register: ec2
+
+    - name: Save info ec2
+      copy: content="{{ ec2 }}" dest="~/details_ec2" mode=0755
+      when: ec2.changed
 ...

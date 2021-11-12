@@ -19,7 +19,9 @@
     - ftps
 
 ## Détail des machines
-### Ansible
+Distributions : centos pour tout le monde
+
+### VM - Ansible
 Pour l'aspect pratique, nous pourrons tous exécuter ansible depuis cette machine. Cela évite moult installation et configuration sur les machines hôtes.
 Packages :
 - python (via dnf)
@@ -36,12 +38,15 @@ Réseau :
 Autres :
 - clone du répertoire https://github.com/Leikt/poe-2021-final-project.git dans /data
 
-### Frontend
+### VM - Frontend
 Point d'accès au réseau.
 
 Package :
 - python
 - docker
+
+Package python :
+- docker-compose
 
 Docker :
 - nginx
@@ -52,12 +57,15 @@ Réseau :
 - POE (interne)
 - VPN
 
-### Application
+### VM - Application
 Héberge les applications demandées par le client.
 
 Package :
 - python
 - docker
+
+Package python :
+- docker-compose
 
 Docker :
 - jekyll
@@ -72,12 +80,15 @@ Connexion :
 Réseau :
 - POE (interne)
 
-### Data
+### VM - Data
 Serveur de données pour les applications.
 
 Package :
 - python
 - docker
+
+Package python :
+- docker-compose
 
 Dockers :
 - nfs-server

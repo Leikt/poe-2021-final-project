@@ -1,6 +1,8 @@
 ---
 - name: include provisionning variables
-  include_vars: vars/all
+  include_vars:
+    file: vars/main.yml
+    name: pro
 
 - name: debug disp
   debug:

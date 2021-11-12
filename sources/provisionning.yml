@@ -8,24 +8,25 @@
     secret_key: "{{ lookup('file', '/home/centos/aws_access/secret_key') }}"
     region: eu-central-1
     ssh_key: "/home/centos/.ssh/aws"
-    vm_name: G4_PEO_
+    vm_name: G4_PEO_test
     subnet_id: subnet-3ced7c56
     image: ami-047e03b8591f2d48a
     private_key: "/home/centos/.ssh/aws.pem"
     count: 1
 
   tasks:
-    - name: installation de python-pip
-      package:
+
+    - name: install pip
+      yum:
         name:
+          - python3-pip
           - python-pip
         state: latest
 
-    - name: installation du module python boto and boto3
+    - name: install python package boto3
       pip:
         name:
-          - boto
-          - botocore
+          - boto3
         state: latest
 
     - name: Creation de clef

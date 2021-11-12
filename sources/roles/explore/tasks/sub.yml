@@ -1,0 +1,5 @@
+---
+- name: do thing with arguments
+  debug:
+    msg: "Message from sub task"
+...

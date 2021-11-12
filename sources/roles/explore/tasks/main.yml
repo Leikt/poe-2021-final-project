@@ -4,8 +4,7 @@
     name: i
 
 - name: test looping
-  debug:
-    msg: "Hostname: {{ item.hostname }}, Group: {{ item.group }}"
+  include: sub.yml
   loop: "{{ i.machines }}"
   loop_control:
     index_var: index

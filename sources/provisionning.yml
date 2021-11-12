@@ -19,6 +19,12 @@
       package:
         name:
           - python-pip
+        state: present
+
+    - name: upgrade pip
+      pip:
+        name:
+          - pip
         state: latest
 
     - name: installation du module python boto and boto3
@@ -27,7 +33,7 @@
           - boto
           - boto3
           - botocore
-        state: present
+        state: latest
 
     - name: Creation de clef
       ec2_key:

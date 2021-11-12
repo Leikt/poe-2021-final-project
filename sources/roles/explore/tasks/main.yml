@@ -1,9 +1,13 @@
+- vars:
+    my_list:
+      - a
+      - b
+      - c
+
 - name: test looping
   debug:
     msg: "Loop on {{ item }} at index {{ index }}"
   loop:
-    - a
-    - b
-    - c
+    - "{{ my_list }}"
   loop_control:
     index_var: index

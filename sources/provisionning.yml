@@ -22,10 +22,8 @@
         state: present
 
     - name: upgrade pip
-      pip:
-        name:
-          - pip
-        state: latest
+      shell:
+        cmd: pip install --upgrade pip
 
     - name: installation du module python boto and boto3
       pip:

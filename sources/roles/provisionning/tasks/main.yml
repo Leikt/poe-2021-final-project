@@ -1,10 +1,10 @@
 ---
-- name: include provisionning variables
-  include_vars: provisioning_vars.yml
+#- name: include provisionning variables
+#  include_vars: provisioning_vars.yml
 
 - name: debug disp
   debug:
-    msg: "A var : "
+    msg: "A message"
 #    - name: install python package boto and boto3
 #      pip:
 #        name:

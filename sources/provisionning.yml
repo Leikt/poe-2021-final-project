@@ -15,10 +15,9 @@
     count: 1
 
   tasks:
-    - name: install python package boto
+    - name: install python package boto and boto3
       pip:
         name:
-          - boto
           - boto3
         state: latest
 

@@ -15,9 +15,9 @@ eval `ssh-agent -s`
 ```
 - Ouvrez le fichier `github.pub` et copiez le contenu : nous allons ajouter la clé publique à GitHub.
 - Ouvrez votre navigateur et allez sur votre compte GitHub : [https://github.com/](https://github.com/). Si vous n'avez pas de compte, créez-en un : c'est gratuit et utile pour la suite de votre carrière.
-- Cliquez ensuite sur l'icone de votre profile en haut à droite > Settings > SSH and GPG keys.
+- Cliquez ensuite sur l'icône de votre profil en haut à droite > Settings > SSH and GPG keys.
 	- Vous voyez le gros bouton "New SSH key" ? Cliquez dessus.
-	- Donnez lui le nom que vous voulez (perso j'utilise le hostname de ma machine) il faut juste que vous sachiez de quelle machine vient la clé.
+	- Donnez-lui le nom que vous voulez (perso j'utilise le hostname de ma machine) il faut juste que vous sachiez de quelle machine vient la clé.
 	- Dans le grand encart "Key", collez le contenu de `github.pub`
 
 C'est setup. Testons tout ça :

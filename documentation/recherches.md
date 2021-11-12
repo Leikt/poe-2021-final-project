@@ -1,17 +1,15 @@
-### liens utiles jekyll:
+# Jekyll
 ## présentation générale jekyll
 https://www.ionos.fr/digitalguide/hebergement/blogs/jekyll/
-# install jekyll on linux
+## install jekyll on linux
 https://jekyllrb.com/docs/installation/other-linux/
-# install jekyll in docker :
+## install jekyll in docker :
 https://ddewaele.github.io/running-jekyll-in-docker/
-# install jekyll with docker compose
+## install jekyll with docker compose
 https://urre.me/writings/docker-compose-and-jekyll/
 
-### Django
+# Django
 https://python.doctor/page-django-introduction-python
 https://docs.docker.com/samples/django/
-## open vpn
 
-
-### OpenVPN
+# OpenVPN

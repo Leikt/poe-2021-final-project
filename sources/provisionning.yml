@@ -3,14 +3,14 @@
   gather_facts: False
 
   vars:
-    access_key: "{{ lookup('file', ../private/access_key) }}"
-    secret_key: "{{ lookup('file', ../private/secret_key) }}"
+    access_key: "{{ lookup('file', ~/aws_access/access_key) }}"
+    secret_key: "{{ lookup('file', ~/aws_access/secret_key) }}"
     region: eu-central-1
-    ssh_key: ../private/aws
-    vm_name: ServerRL
+    ssh_key: ~/.ssh/aws
+    vm_name: G4_PEO_
     subnet_id: subnet-3ced7c56
     image: ami-047e03b8591f2d48a
-    private_key: ../private/aws.pem
+    private_key: ~/.ssh/aws.pem
     count: 1
 
   tasks:
@@ -56,5 +56,5 @@
       register: ec2
 
     - name: Save info ec2
-      copy: content="{{ ec2 }}" dest="./details_ec2" mode=0755
+      copy: content="{{ ec2 }}" dest="~/details_ec2" mode=0755
       when: ec2.changed

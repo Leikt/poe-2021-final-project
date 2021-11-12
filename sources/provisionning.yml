@@ -23,7 +23,7 @@
 
     - name: upgrade pip
       shell:
-        cmd: pip install --upgrade pip
+        cmd: "pip install --upgrade pip"
 
     - name: installation du module python boto and boto3
       pip:

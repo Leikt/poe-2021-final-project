@@ -24,6 +24,7 @@
       pip:
         name:
           - boto
+          - boto3
         state: present
 
     - name: Creation de clef

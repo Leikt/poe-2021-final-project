@@ -6,6 +6,6 @@
 - name: test looping
   debug:
     msg: "Hostname: {{ item.hostname }}, Group: {{ item.group }}"
-  loop: "{{ i.a_list }}"
+  loop: "{{ i.machines }}"
   loop_control:
     index_var: index

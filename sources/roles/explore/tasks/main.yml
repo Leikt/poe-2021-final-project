@@ -5,4 +5,5 @@
     - a
     - b
     - c
+  loop_control:
     index_var: index

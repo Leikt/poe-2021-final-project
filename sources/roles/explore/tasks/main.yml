@@ -4,8 +4,7 @@
     name: i
 
 - name: test looping
-  include_tasks:
-    file: sub.yml
+  include: tasks/sub.yml
   #loop: "{{ i.machines }}"
   #loop_control:
   #  index_var: index

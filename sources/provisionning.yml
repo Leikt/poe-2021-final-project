@@ -1,3 +1,4 @@
+---
 - hosts: localhost
   connection: local
   gather_facts: False
@@ -20,11 +21,12 @@
           - python-pip
         state: present
 
-    - name: installation du module python boto
+    - name: installation du module python boto and boto3
       pip:
         name:
           - boto
           - boto3
+          - botocore
         state: present
 
     - name: Creation de clef
@@ -59,3 +61,4 @@
     - name: Save info ec2
       copy: content="{{ ec2 }}" dest="~/details_ec2" mode=0755
       when: ec2.changed
+...

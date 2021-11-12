@@ -19,7 +19,7 @@
       package:
         name:
           - python-pip
-        state: present
+        state: latest
 
     - name: installation du module python boto and boto3
       pip:

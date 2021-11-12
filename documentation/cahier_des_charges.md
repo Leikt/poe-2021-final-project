@@ -49,8 +49,16 @@ Package python :
 - docker-compose
 
 Docker :
-- nginx
 - openVPN
+- nginx manuel: \
+https://hub.docker.com/_/nginx
+https://phoenixnap.com/kb/docker-nginx-reverse-proxy
+
+
+OU
+- nginx auto : \
+https://hub.docker.com/r/jwilder/nginx-proxy
+http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/
 
 Réseau :
 - Internet
@@ -68,11 +76,16 @@ Package python :
 - docker-compose
 
 Docker :
-- jekyll
-- jenkins
-- tomcat
-- gitlab
-- django
+- jekyll : \
+https://hub.docker.com/r/jekyll/jekyll
+- jenkins: \
+https://hub.docker.com/_/jenkins
+- tomcat :\
+https://hub.docker.com/_/tomcat
+- gitlab : \
+https://hub.docker.com/_/gitlab-community-edition
+- django : \
+https://hub.docker.com/_/django
 
 Connexion :
 - par ssh via la machine Ansible uniquement
@@ -91,7 +104,8 @@ Package python :
 - docker-compose
 
 Dockers :
-- nfs-server
+- nfs-server : \
+https://hub.docker.com/r/atlassian/nfs-server-test
 - ftps
 
 Réseau :

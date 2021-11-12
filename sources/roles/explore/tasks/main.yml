@@ -1,0 +1,7 @@
+- name: test looping
+  debug:
+    msg: "Loop on {{ item }}"
+  loop:
+    - a
+    - b
+    - c

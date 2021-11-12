@@ -1,19 +1,12 @@
-- name: basic looping
-  debug:
-    msg: "Value: {{ item }}"
-  loop:
-    - a
-    - b
-
 - name: include provisionning variables
   include_vars:
     file: vars/main.yml
     name: i
 
-#- name: test looping
-#  include: sub.yml
-#    vars:
-#      machine: "{{ item }}"
-#  loop: "{{ i.machines }}"
-#  loop_control:
-#    index_var: index
+- name: test looping
+  include: sub.yml
+    vars:
+      machine: "{{ item }}"
+  loop: "{{ i.machines }}"
+  loop_control:
+    index_var: index

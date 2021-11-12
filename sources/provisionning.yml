@@ -21,7 +21,7 @@
         state: present
 
     - name: installation module python boto
-      pip3:
+      pip:
         name:
           - boto
         state: present

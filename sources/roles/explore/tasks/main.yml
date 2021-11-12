@@ -10,10 +10,10 @@
     file: vars/main.yml
     name: i
 
-- name: test looping
-  include: sub.yml
-    vars:
-      machine: "{{ item }}"
-  loop: "{{ i.machines }}"
-  loop_control:
-    index_var: index
+#- name: test looping
+#  include: sub.yml
+#    vars:
+#      machine: "{{ item }}"
+#  loop: "{{ i.machines }}"
+#  loop_control:
+#    index_var: index

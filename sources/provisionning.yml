@@ -10,7 +10,7 @@
     ssh_key: "/home/sysadmin/.ssh/aws"
     vm_name: G4_PEO_test
     subnet_id: subnet-1ffc6979
-    image: ami-054cc430abebc4112
+    image: ami-0b30f38d939dd4b54
     type: t2.micro
     private_key: "/home/sysadmin/.ssh/aws.pem"
     count: 1

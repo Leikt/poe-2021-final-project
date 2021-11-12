@@ -15,7 +15,7 @@
 #    private_key: "~/.ssh/aws.pem"
 #    count: 1
   vars_files:
-    - "./provisioning_vars.yml"
+    - "provisioning_vars.yml"
 
   tasks:
     - name: install python package boto and boto3
@@ -37,24 +37,24 @@
       copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ private_key }}" mode=0600
       when: ec2_key_result.changed
 
-#    - name: Creation de l'instance
-#      ec2:
-#        aws_access_key: "{{ access_key }}"
-#        aws_secret_key: "{{ secret_key }}"
-#        instance_type: "{{ type }}"
-#        image: "{{ image }}"
-#        key_name: "{{ ssh_key }}"
-#        count: "{{ count }}"
-#        group: default
-#        region: "{{ region }}"
-#        wait: yes
-#        vpc_subnet_id: "{{ subnet_id }}"
-#        assign_public_ip: yes
-#        instance_tags:
-#           Name: "{{ vm_name }}"
-#      register: ec2
-#
-#    - name: Save info ec2
-#      copy: content="{{ ec2 }}" dest="~/details_ec2" mode=0755
-#      when: ec2.changed
+    - name: Creation de l'instance
+      ec2:
+        aws_access_key: "{{ access_key }}"
+        aws_secret_key: "{{ secret_key }}"
+        instance_type: "{{ type }}"
+        image: "{{ image }}"
+        key_name: "{{ ssh_key }}"
+        count: "{{ count }}"
+        group: default
+        region: "{{ region }}"
+        wait: yes
+        vpc_subnet_id: "{{ subnet_id }}"
+        assign_public_ip: yes
+        instance_tags:
+           Name: "{{ vm_name }}"
+      register: ec2
+
+    - name: Save info ec2
+      copy: content="{{ ec2 }}" dest="~/details_ec2" mode=0755
+      when: ec2.changed
 ...

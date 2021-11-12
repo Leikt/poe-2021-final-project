@@ -1,7 +1,7 @@
 # Configurer Git et Github
 Afin de versionner son projet, nous pouvons utiliser Git et GitHub. Le premier est un outil de versionnage, le second une plateforme de développement et de partage de code.
 ## Préparation
-- Installez le package `git`
+- Installez le package `git` (ou git et gitbash sur Windows)
 - Allez dans le dossier contenant vos clés ssh (sur linux : `cd ~/.ssh/`) ou créez-en un.
 - Générez une nouvelle clé ssh :
 ```bash

@@ -7,7 +7,7 @@
 * Création de la VM ansible
   * Python 3.6.8
   * Python 2.7.5
-  * Ansible 2.9.25
+  * Ansible 2.11.6 (from python3 pip)
   * Connexion SSH sécurisée sur le port 2021
 * Durcissement de la connexion SSH vers la VM ansible
 * Recherches sur Jekyll, OpenVPN, Django...

@@ -1,3 +1,10 @@
+- name: basic looping
+  debug:
+    msg: "Value: {{ item }}"
+  loop:
+    - a
+    - b
+
 - name: include provisionning variables
   include_vars:
     file: vars/main.yml

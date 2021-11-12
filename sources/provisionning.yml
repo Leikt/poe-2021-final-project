@@ -16,11 +16,13 @@
 
   tasks:
     - name: install python package boto and boto3
-      shell: "pip install boto boto3"
+      pip:
+        name:
+          - boto
+          - boto3
+        state: latest
 
     - name: Creation de clef
-#      vars:
-#        ansible_python_interpreter: /usr/bin/python3
       ec2_key:
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"

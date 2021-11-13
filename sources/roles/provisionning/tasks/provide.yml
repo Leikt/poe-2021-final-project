@@ -25,14 +25,6 @@
   register: ec2
 
 - name: "Add machine {{ machine.name }} to inventory"
-  add_host:
-    groups:
-      - "{{ group_name }}"
-    name: "{{ machine.name }}"
-#  shell: "echo '{{ item.private_ip }}' >> {{ connexion.inventory }}"
-#  with_items: "{{ ec2.instances }}"
-
-#- name: Save info ec2
-#  copy: content="{{ ec2 }}" dest="~/details_{{ machine.name }}" mode=0755
-#  when: ec2.changed
+  shell: "echo '{{ item.private_ip }}' >> {{ connexion.inventory }}"
+  with_items: "{{ ec2.instances }}"
 ...

@@ -3,6 +3,7 @@
   ec2_group_info:
     aws_access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
     aws_secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
+    region: "sa-ease-1"
     filters:
       vpc-id: vpc-932139f4
   register: groups

@@ -1,4 +1,8 @@
 ---
+- debug:
+    msg: "Variables provide is True"
+  when: provide is defined
+
 - name: gather security group data
   ec2_instance_info:
     aws_access_key: "{{ lookup('file', '~/aws_access/access_key') }}"

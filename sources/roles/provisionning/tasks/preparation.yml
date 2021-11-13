@@ -29,6 +29,6 @@
 - name: create empty inventory file
   file:
     path: "{{ connexion.inventory }}"
+    mode: '0755'
     state: touch
-    mode: 755
 ...

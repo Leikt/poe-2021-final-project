@@ -1,6 +1,12 @@
 ---
-- hosts: all
-  tasks:
-    - name: "ping"
-      ping:
+- name: "wait for the ssh to be available"
+  local_action: wait_for
+                host=18.229.155.127
+                port=22
+                state=started
+
+#- hosts: all
+#  remote_user: centos
+#
+
 ...

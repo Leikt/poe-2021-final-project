@@ -19,8 +19,7 @@
   include: tasks/provide.yml
   vars:
     infos: "{{ var_infos }}"
-    machine:
-      name: G4_TEST
-      count: 1
+    machine: "{{ item }}"
     machines: "{{ var_machines }}"
+  loop: "{{ machines.list }}"
 ...

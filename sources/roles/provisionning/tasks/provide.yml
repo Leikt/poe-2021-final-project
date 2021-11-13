@@ -1,16 +1,16 @@
 ---
-- name: Creation de l'instance
+- name: "Creation de {{ machine.count }} instance(s) de {machine.name}"
   ec2:
     aws_access_key: "{{ infos.access_key }}"
     aws_secret_key: "{{ infos.secret_key }}"
     instance_type: "{{ infos.type }}"
-    image: "{{ infos.image }}"
+    image: "{{ machines.image }}"
     key_name: "{{ infos.ssh_key }}"
     count: "{{ machine.count }}"
     group: default
-    region: "{{ infos.region }}"
+    region: "{{ machines.region }}"
     wait: yes
-    vpc_subnet_id: "{{ infos.subnet_id }}"
+    vpc_subnet_id: "{{ machines.subnet_id }}"
     assign_public_ip: yes
     instance_tags:
        Name: "{{ machine.name }}"

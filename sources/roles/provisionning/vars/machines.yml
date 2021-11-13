@@ -1,10 +1,16 @@
 ---
+region: sa-east-1
+subnet_id: subnet-1ffc6979
+image: ami-0b30f38d939dd4b54
+type: t3.xlarge
 list:
   - name: G4_frontend
     group: frontend
     count: 1
-#  - name: G4_applications
-#    group: backend_application
-#  - name: G4_data
-#    group: data
+  - name: G4_applications
+    group: backend_application
+    count: 1
+  - name: G4_data
+    group: data
+    count: 1
 ...

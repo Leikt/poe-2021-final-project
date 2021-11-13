@@ -19,7 +19,7 @@
     aws_access_key: "{{ infos.access_key }}"
     aws_secret_key: "{{ infos.secret_key }}"
     name: "{{ infos.ssh_key }}"
-    region: "{{ infos.region }}"
+    region: "{{ machines.region }}"
   register: ec2_key_result
 
 - name: Save private key

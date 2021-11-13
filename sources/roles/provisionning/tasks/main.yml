@@ -13,11 +13,13 @@
   include: tasks/preparation.yml
   vars:
     infos: "{{ prov }}"
+    machines: "{{ machines }}"
 
 - name: instanciate machines
   include: tasks/provide.yml
   vars:
     infos: "{{ prov }}"
     machine: "{{ item }}"
+    machines: "{{ machines }}"
   loop: "{{ machines.list }}"
 ...

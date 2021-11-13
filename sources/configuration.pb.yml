@@ -1,2 +1,4 @@
 ---
+- name: configure ssh
+  import_playbook: ssh.pb.yml
 ...

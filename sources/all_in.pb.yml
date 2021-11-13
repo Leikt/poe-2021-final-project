@@ -3,7 +3,7 @@
   import_playbook: provisionning.pb.yml
   when: provide is defined
 
-tasks:
+- hosts: localhost
   - meta: refresh_inventory
 
 - hosts: all

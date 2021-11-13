@@ -5,7 +5,7 @@
     aws_secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
     region: "sa-east-1"
     filters:
-      "tag:Name": G4_Ansible+
+      owner_id: 532000499530
   register: result
 
 - name: Save group info ec2

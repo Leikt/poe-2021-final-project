@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  tasks:
+    - name: check if key already exists
+      stat:
+        path: '~/.ssh/internal'
+      register: key_exists
+
+    - name: create ssh key
+      shell: "ssh-keygen -t rsa -N '' -f ~/.ssh/internal && eval `ssh-agent -s` && ssh-add ~/.ssh/internal"
+      when: not key_exists.stat.exists
+
+- hosts: all
+  vars:
+    host_ip: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+  tasks:
+    - name: send public keys to server
+      shell: "scp-copy-id -i ~/.ssh/internal.pub centos@{{ host_ip }}"
+...

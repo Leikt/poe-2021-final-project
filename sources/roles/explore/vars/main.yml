@@ -1,9 +1,0 @@
----
-machines:
-  - hostname: frontend1
-    group: frontend
-  - hostname: applications1
-    group: backend_application
-  - hostname: data1
-    group: data
-...

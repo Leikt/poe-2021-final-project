@@ -22,10 +22,13 @@
   when: ec2_key_result.changed
 
 - name: remove ancient inventory file
-  file: "{{ connexion.inventory }}"
-  state: absent
+  file:
+    path: "{{ connexion.inventory }}"
+    state: absent
 
 - name: create empty inventory file
-  file: "{{ connexion.inventory }}"
-  state: touch
+  file:
+    path: "{{ connexion.inventory }}"
+    state: touch
+    mode: 755
 ...

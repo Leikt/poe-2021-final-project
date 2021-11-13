@@ -3,17 +3,20 @@
   ec2:
     aws_access_key: "{{ infos.access_key }}"
     aws_secret_key: "{{ infos.secret_key }}"
-    instance_type: "{{ infos.type }}"
-    image: "{{ machines.image }}"
     key_name: "{{ infos.ssh_key }}"
-    count: "{{ machine.count }}"
-    group: default
+
+    image: "{{ machines.image }}"
+    instance_type: "{{ machines.type }}"
     region: "{{ machines.region }}"
-    wait: yes
     vpc_subnet_id: "{{ machines.subnet_id }}"
-    assign_public_ip: yes
+
+    count: "{{ machine.count }}"
     instance_tags:
        Name: "{{ machine.name }}"
+
+    group: default
+    assign_public_ip: yes
+    wait: yes
   register: ec2
 
 - name: Save info ec2

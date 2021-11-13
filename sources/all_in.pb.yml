@@ -1,0 +1,5 @@
+---
+- name: provide new network
+  import_playbook: provisionning.pb.yml
+  when: provide is defined
+...

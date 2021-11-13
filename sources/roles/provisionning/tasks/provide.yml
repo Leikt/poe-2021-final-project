@@ -21,7 +21,7 @@
 
     group: default
     assign_public_ip: yes
-    wait: yes
+    # wait: yes
   register: ec2
 
 - name: "Add machine {{ machine.name }} to inventory"

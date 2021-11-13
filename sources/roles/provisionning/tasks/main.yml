@@ -15,6 +15,10 @@
     connexion: "{{ var_connexion }}"
     machines: "{{ var_machines }}"
 
+- name: init instances list
+  set_fact:
+    instances: []
+
 - name: instanciate machines of each groups
   include: tasks/provide_group.yml
   vars:
@@ -22,4 +26,11 @@
     v_group: "{{ item }}"
     v_machines: "{{ var_machines }}"
   loop: "{{ var_machines.groups }}"
+
+- name: "Wait for connection"
+  delegate_to: "{{ item.public_dns_name }}"
+  wait_for_connection:
+    delay: 60
+    timeout: 320
+  loop: "{{ instances }}"
 ...

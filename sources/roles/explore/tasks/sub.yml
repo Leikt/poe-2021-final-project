@@ -1,5 +1,0 @@
----
-- name: do thing with arguments
-  debug:
-    msg: "Message from sub task. Machine: {{ machine.hostname }} in groupe {{ machine.group }}"
-...

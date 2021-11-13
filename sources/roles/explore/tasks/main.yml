@@ -1,18 +1,4 @@
 ---
-- name: include provisionning variables
-  include_vars:
-    file: vars/connexion.yml
-    name: i
-
-- name: test looping
-  include: tasks/sub.yml
-  vars:
-    machine: "{{ item }}"
-    index: "{{ index }}"
-  loop: "{{ i.machines }}"
-  loop_control:
-    index_var: index
-
 - name: gather security group data
   ec2_group_info:
     aws_access: ~/aws_access/access_key

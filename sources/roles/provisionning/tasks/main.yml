@@ -2,24 +2,24 @@
 - name: include provisionning variables
   include_vars:
     file: vars/main.yml
-    name: prov
+    name: _infos
 
 - name: include machines to create
   include_vars:
     file: vars/machines.yml
-    name: machines
+    name: _machines
 
 - name: prepare the connexion with aws
   include: tasks/preparation.yml
   vars:
-    infos: "{{ prov }}"
-    machines: "{{ machines }}"
+    infos: "{{ _infos }}"
+    machines: "{{ _machines }}"
 
 - name: instanciate machines
   include: tasks/provide.yml
   vars:
-    infos: "{{ prov }}"
+    infos: "{{ _infos }}"
     machine: "{{ item }}"
-    machines: "{{ machines }}"
-  loop: "{{ machines.list }}"
+    machines: "{{ _machines }}"
+  loop: "{{ _machines.list }}"
 ...

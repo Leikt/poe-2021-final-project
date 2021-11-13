@@ -19,5 +19,5 @@
   vars:
     infos: "{{ prov }}"
     machine: "{{ item }}"
-  loop: "{{ machines }}"
+  loop: "{{ machines.list }}"
 ...

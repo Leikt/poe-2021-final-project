@@ -10,5 +10,4 @@
 
 - name: Save group info ec2
   copy: content="{{ groups }}" dest="~/groups" mode=0755
-  when: groups.changed
 ...

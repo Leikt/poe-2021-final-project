@@ -4,7 +4,8 @@
   when: provide is defined
 
 - hosts: localhost
-  - meta: refresh_inventory
+  tasks:
+    - meta: refresh_inventory
 
 - hosts: all
   tasks:

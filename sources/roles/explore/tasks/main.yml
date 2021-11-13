@@ -1,8 +1,8 @@
 ---
 - name: gather security group data
   ec2_group_info:
-    aws_access: "{{ lookup('file', ~/aws_access/access_key) }}"
-    aws_secret: "{{ lookup('file', ~/aws_access/secret_key) }}"
+    aws_access: "{{ lookup('file', '~/aws_access/access_key') }}"
+    aws_secret: "{{ lookup('file', '~/aws_access/secret_key') }}"
     filters:
       vpc-id: vpc-932139f4
   register: groups

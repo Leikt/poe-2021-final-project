@@ -1,10 +1,10 @@
 ---
+- name: provide new network instances
+  import_playbook: provisionning.pb.yml
+  when: provides is defined
+
 - hosts: localhost
   tasks:
-    - name: provide new network instances
-      import_playbook: provisionning.pb.yml
-      when: provides is defined
-
     - name: run configuration playbook with inventory
       shell: "ansible-playbook configuration.pb.yml -i ~/inventory.ini"
 ...

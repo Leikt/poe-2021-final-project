@@ -1,6 +1,6 @@
 - name: include provisionning variables
   include_vars:
-    file: vars/main.yml
+    file: vars/connexion.yml
     name: i
 
 - name: test looping

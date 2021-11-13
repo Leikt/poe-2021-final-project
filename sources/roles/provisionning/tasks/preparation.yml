@@ -1,11 +1,6 @@
 ---
 # Require variables
-# infos
-#   access_key
-#   secret_key
-#   ssh_key
-#   region
-#   private_key
+# connexion : access_key, secret_key, ssh_key, region, private_key
 
 - name: install python package boto and boto3
   pip:
@@ -16,13 +11,21 @@
 
 - name: Creation de clef
   ec2_key:
-    aws_access_key: "{{ infos.access_key }}"
-    aws_secret_key: "{{ infos.secret_key }}"
-    name: "{{ infos.ssh_key }}"
+    aws_access_key: "{{ connexion.access_key }}"
+    aws_secret_key: "{{ connexion.secret_key }}"
+    name: "{{ connexion.ssh_key }}"
     region: "{{ machines.region }}"
   register: ec2_key_result
 
 - name: Save private key
-  copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ infos.private_key }}" mode=0600
+  copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ connexion.private_key }}" mode=0600
   when: ec2_key_result.changed
+
+- name: remove ancient inventory file
+  file: "{{ connexion.inventory }}"
+  state: absent
+
+- name: create empty inventory file
+  file: "{{ connexion.inventory }}"
+  state: touch
 ...

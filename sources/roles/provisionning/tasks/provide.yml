@@ -1,9 +1,14 @@
 ---
+# Require variables
+# connexion : access_key, secret_key, ssh_key
+# machines : image, type, region, subnet
+# machine : name, count
+
 - name: "Creation de {{ machine.count }} instance(s) : nom={{ machine.name }}"
   ec2:
-    aws_access_key: "{{ infos.access_key }}"
-    aws_secret_key: "{{ infos.secret_key }}"
-    key_name: "{{ infos.ssh_key }}"
+    aws_access_key: "{{ connexion.access_key }}"
+    aws_secret_key: "{{ connexion.secret_key }}"
+    key_name: "{{ connexion.ssh_key }}"
 
     image: "{{ machines.image }}"
     instance_type: "{{ machines.type }}"
@@ -18,6 +23,11 @@
     assign_public_ip: yes
     wait: yes
   register: ec2
+
+#- name: "Add machine {{ machine.name }} to inventory"
+#  lineinfile:
+#    path: "{{ connexion.inventory }}"
+#    line: "{{ ec2 }}"
 
 - name: Save info ec2
   copy: content="{{ ec2 }}" dest="~/details_{{ machine.name }}" mode=0755

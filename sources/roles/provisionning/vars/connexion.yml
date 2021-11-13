@@ -3,4 +3,5 @@ access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
 secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
 ssh_key: "~/.ssh/aws"
 private_key: "~/.ssh/aws.pem"
+inventory: "~/inventory.ini"
 ...

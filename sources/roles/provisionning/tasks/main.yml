@@ -1,8 +1,8 @@
 ---
 - name: include provisionning variables
   include_vars:
-    file: vars/main.yml
-    name: var_infos
+    file: vars/connexion.yml
+    name: var_connexion
 
 - name: include machines to create
   include_vars:
@@ -12,14 +12,14 @@
 - name: prepare the connexion with aws
   include: tasks/preparation.yml
   vars:
-    infos: "{{ var_infos }}"
+    connexion: "{{ var_connexion }}"
     machines: "{{ var_machines }}"
 
-- name: instanciate machines
-  include: tasks/provide.yml
+- name: instanciate machines of each groups
+  include: tasks/provide_group.yml
   vars:
-    infos: "{{ var_infos }}"
-    machine: "{{ item }}"
-    machines: "{{ var_machines }}"
-  loop: "{{ machines.list }}"
+    v_connexion: "{{ var_connexion }}"
+    v_group: "{{ item }}"
+    v_machines: "{{ var_machines }}"
+  loop: "{{ var_machines.groups }}"
 ...

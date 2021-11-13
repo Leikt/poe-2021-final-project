@@ -1,0 +1,14 @@
+---
+- name: "create inventory group {{ v_group.name }}"
+  lineinfile:
+    path: "{{ v_connexion.inventory }}"
+    line: "[{{ v_group.name }}]"
+
+- name: "provide machines of group {{ v_group.name }}"
+  include: tasks/provide.yml
+  vars:
+    connexion: "{{ v_connexion }}"
+    machines: "{{ v_machines }}"
+    machine: "{{ item }}"
+  loop: "{{ v_group.machines }}"
+...

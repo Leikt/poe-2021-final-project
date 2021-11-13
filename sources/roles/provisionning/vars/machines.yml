@@ -8,12 +8,12 @@ groups:
     machines:
     - name: G4_frontend
       count: 1
-  - name: backend_application
-    machines:
-    - name: G4_applications
-      count: 1
-  - name: backend_data
-    machines:
-    - name: G4_data
-      count: 1
+#  - name: backend_application
+#    machines:
+#    - name: G4_applications
+#      count: 1
+#  - name: backend_data
+#    machines:
+#    - name: G4_data
+#      count: 1
 ...

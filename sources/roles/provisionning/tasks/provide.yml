@@ -1,0 +1,22 @@
+---
+- name: Creation de l'instance
+  ec2:
+    aws_access_key: "{{ prov.access_key }}"
+    aws_secret_key: "{{ prov.secret_key }}"
+    instance_type: "{{ prov.type }}"
+    image: "{{ prov.image }}"
+    key_name: "{{ prov.ssh_key }}"
+    count: "{{ machine.count }}"
+    group: default
+    region: "{{ prov.region }}"
+    wait: yes
+    vpc_subnet_id: "{{ prov.subnet_id }}"
+    assign_public_ip: yes
+    instance_tags:
+       Name: "{{ machine.name }}"
+  register: ec2
+
+- name: Save info ec2
+  copy: content="{{ ec2 }}" dest="~/details_{{ machine.name }}" mode=0755
+  when: ec2.changed
+...

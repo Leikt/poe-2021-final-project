@@ -5,6 +5,7 @@
 - name: install python package boto and boto3
   pip:
     name:
+      - botocore
       - boto
       - boto3
     state: latest

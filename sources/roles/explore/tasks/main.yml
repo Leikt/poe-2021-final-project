@@ -1,3 +1,4 @@
+---
 - name: include provisionning variables
   include_vars:
     file: vars/connexion.yml
@@ -11,3 +12,14 @@
   loop: "{{ i.machines }}"
   loop_control:
     index_var: index
+
+- name: gather security group data
+  ec2_group_info:
+    filters:
+      vpc-id: vpc-932139f4
+  register: groups
+
+- name: Save group info ec2
+  copy: content="{{ groups }}" dest="~/groups" mode=0755
+  when: groups.changed
+...

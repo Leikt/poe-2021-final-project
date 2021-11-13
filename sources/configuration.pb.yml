@@ -2,5 +2,5 @@
 - hosts: localhost
   tasks:
     - debug:
-      msg: "On commence la configuration ici !"
+        msg: "On commence la configuration ici !"
 ...

@@ -11,7 +11,7 @@ groups:
   - name: backend_application
     machines:
     - name: G4_applications
-      count: 2
+      count: 1
   - name: backend_data
     machines:
     - name: G4_data

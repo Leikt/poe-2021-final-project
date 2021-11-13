@@ -1,19 +1,21 @@
 ---
 - name: include provisionning variables
   include_vars:
-    file: vars/connexion.yml
-    name: var_connexion
+    file: vars/connection.yml
+    name: var_connection
 
 - name: include machines to create
   include_vars:
     file: vars/machines.yml
     name: var_machines
 
-- name: prepare the connexion with aws
-  include: tasks/preparation.yml
-  vars:
-    connexion: "{{ var_connexion }}"
+- name: set facts
+  set_fact:
+    connection: "{{ var_connection }}"
     machines: "{{ var_machines }}"
+
+- name: prepare the connection with aws
+  include: tasks/preparation.yml
 
 - name: init instances list
   set_fact:
@@ -22,15 +24,13 @@
 - name: instanciate machines of each groups
   include: tasks/provide_group.yml
   vars:
-    v_connexion: "{{ var_connexion }}"
-    v_group: "{{ item }}"
-    v_machines: "{{ var_machines }}"
-  loop: "{{ var_machines.groups }}"
+    group: "{{ item }}"
+  loop: "{{ machines.groups }}"
 
-- name: "Wait for connection"
-  delegate_to: "{{ item.public_dns_name }}"
-  wait_for_connection:
-    delay: 60
-    timeout: 320
-  loop: "{{ instances }}"
+#- name: "Wait for connection"
+#  delegate_to: "{{ item.public_dns_name }}"
+#  wait_for_connection:
+#    delay: 60
+#    timeout: 320
+#  loop: "{{ instances }}"
 ...

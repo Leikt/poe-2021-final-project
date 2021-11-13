@@ -6,9 +6,9 @@
 
 - name: "Creation de {{ machine.count }} instance(s) : nom={{ machine.name }}"
   ec2:
-    aws_access_key: "{{ connexion.access_key }}"
-    aws_secret_key: "{{ connexion.secret_key }}"
-    key_name: "{{ connexion.ssh_key }}"
+    aws_access_key: "{{ connection.access_key }}"
+    aws_secret_key: "{{ connection.secret_key }}"
+    key_name: "{{ connection.ssh_key }}"
 
     image: "{{ machines.image }}"
     instance_type: "{{ machines.type }}"
@@ -25,7 +25,7 @@
   register: ec2
 
 - name: "Add machine {{ machine.name }} to inventory"
-  shell: "echo '{{ item.public_ip }}' >> {{ connexion.inventory }}"
+  shell: "echo '{{ item.public_ip }}' >> {{ connection.inventory }}"
   with_items: "{{ ec2.instances }}"
 
 - name: "Append instance to created instances"

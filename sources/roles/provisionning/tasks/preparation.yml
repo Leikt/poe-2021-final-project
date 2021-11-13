@@ -22,9 +22,6 @@
   copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ connexion.private_key }}" mode=0600
   when: ec2_key_result.changed
 
-- name: add private key to the agent
-  shell: "eval `ssh-agent -s` && ssh-add {{ connexion.private_key }}"
-
 - name: remove ancient inventory file
   file:
     path: "{{ connexion.inventory }}"

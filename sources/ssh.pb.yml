@@ -15,5 +15,17 @@
     host_ip: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
   tasks:
     - name: send public keys to server
+      delegate_to: localhost
       shell: "scp-copy-id -i ~/.ssh/internal.pub centos@{{ host_ip }}"
+
+    - name: forbid password ssh connection
+      lineinfile:
+        regex: "^PasswordAuthentication *"
+        line: "PasswordAuthentication no"
+        state: present
+
+    - name: restart sshd
+      service:
+        name: sshd
+        state: restarted
 ...

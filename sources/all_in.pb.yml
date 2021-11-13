@@ -1,5 +1,13 @@
 ---
-- name: provide new network
+- name: provide new network instances
   import_playbook: provisionning.pb.yml
   when: provide is defined
+
+tasks:
+  - meta: refresh_inventory
+
+- hosts: all
+  tasks:
+    - debug:
+        msg: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
 ...

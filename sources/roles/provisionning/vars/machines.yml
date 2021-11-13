@@ -1,8 +1,7 @@
 ---
-machines:
-  - name: G4_frontend
-    group: frontend
-    count: 1
+- name: G4_frontend
+  group: frontend
+  count: 1
 #  - name: G4_applications
 #    group: backend_application
 #  - name: G4_data

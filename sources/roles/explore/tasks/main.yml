@@ -7,6 +7,7 @@
   include: tasks/sub.yml
   vars:
     machine: "{{ item }}"
+    index: "{{ index }}"
   loop: "{{ i.machines }}"
   loop_control:
     index_var: index

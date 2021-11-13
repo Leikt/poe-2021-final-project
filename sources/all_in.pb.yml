@@ -5,10 +5,6 @@
 
 - hosts: localhost
   tasks:
-    - meta: refresh_inventory
-
-- hosts: all
-  tasks:
-    - debug:
-        msg: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+    - name: run configuration playbook with inventory
+      shell: "ansible-playbook configuration.pb.yml -i ~/inventory.ini"
 ...

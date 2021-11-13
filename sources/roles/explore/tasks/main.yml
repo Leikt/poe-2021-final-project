@@ -1,6 +1,6 @@
 ---
 - name: gather security group data
-  ec2_vpc_net_info:
+  ec2_instance_info:
     aws_access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
     aws_secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
     region: "sa-east-1"

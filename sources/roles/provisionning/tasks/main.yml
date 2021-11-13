@@ -1,24 +1,24 @@
 ---
 - name: include provisionning variables
   include_vars:
-    file: vars/connexion.yml
-    name: var_connexion
+    file: vars/connection.yml
+    name: var_connection
 
 - name: include machines to create
   include_vars:
     file: vars/machines.yml
     name: var_machines
 
-- name: prepare the connexion with aws
+- name: prepare the connection with aws
   include: tasks/preparation.yml
   vars:
-    connexion: "{{ var_connexion }}"
+    connection: "{{ var_connection }}"
     machines: "{{ var_machines }}"
 
 - name: instanciate machines of each groups
   include: tasks/provide_group.yml
   vars:
-    v_connexion: "{{ var_connexion }}"
+    v_connection: "{{ var_connection }}"
     v_group: "{{ item }}"
     v_machines: "{{ var_machines }}"
     v_instances: "{{ instances }}"

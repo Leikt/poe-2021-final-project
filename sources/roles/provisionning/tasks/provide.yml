@@ -1,6 +1,6 @@
 ---
 # Require variables
-# connexion : access_key, secret_key, ssh_key
+# connection : access_key, secret_key, ssh_key
 # machines : image, type, region, subnet
 # machine : name, count
 

@@ -23,7 +23,7 @@
   when: ec2_key_result.changed
 
 - name: add private key to the agent
-  shell: "ssh-add {{ connexion.private_key }}"
+  shell: "eval `ssh-agent -s` && ssh-add {{ connexion.private_key }}"
 
 - name: remove ancient inventory file
   file:

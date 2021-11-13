@@ -4,7 +4,8 @@
     aws_access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
     aws_secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
     region: "sa-east-1"
-    vpc_ids: vpc-932139f4
+    filters:
+      "network-interface.vpc-id": vpc-932139f4
 
   register: result
 

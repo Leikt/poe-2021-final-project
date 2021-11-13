@@ -10,6 +10,13 @@
       shell: "ssh-keygen -t rsa -N '' -f ~/.ssh/internal && eval `ssh-agent -s` && ssh-add ~/.ssh/internal"
       when: not key_exists.stat.exists
 
+    - name: disable StrictHostKeyChecking
+      lineinfile:
+        path: /etc/ssh/ssh_config
+        regex: "(#|^)StrictHostKeyChecking*"
+        line: "StrictHostKeyChecking no"
+        state: present
+
 - hosts: all
   become: True
   remote_user: centos
@@ -22,6 +29,7 @@
 
     - name: forbid password ssh connection
       lineinfile:
+        path: /etc/ssh/sshd_config
         regex: "^PasswordAuthentication *"
         line: "PasswordAuthentication no"
         state: present

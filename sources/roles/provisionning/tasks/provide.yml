@@ -1,16 +1,16 @@
 ---
 - name: Creation de l'instance
   ec2:
-    aws_access_key: "{{ prov.access_key }}"
-    aws_secret_key: "{{ prov.secret_key }}"
-    instance_type: "{{ prov.type }}"
-    image: "{{ prov.image }}"
-    key_name: "{{ prov.ssh_key }}"
+    aws_access_key: "{{ infos.access_key }}"
+    aws_secret_key: "{{ infos.secret_key }}"
+    instance_type: "{{ infos.type }}"
+    image: "{{ infos.image }}"
+    key_name: "{{ infos.ssh_key }}"
     count: "{{ machine.count }}"
     group: default
-    region: "{{ prov.region }}"
+    region: "{{ infos.region }}"
     wait: yes
-    vpc_subnet_id: "{{ prov.subnet_id }}"
+    vpc_subnet_id: "{{ infos.subnet_id }}"
     assign_public_ip: yes
     instance_tags:
        Name: "{{ machine.name }}"

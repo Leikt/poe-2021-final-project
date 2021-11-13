@@ -1,6 +1,6 @@
 ---
 # Require variables
-# prov
+# infos
 #   access_key
 #   secret_key
 #   ssh_key
@@ -16,13 +16,13 @@
 
 - name: Creation de clef
   ec2_key:
-    aws_access_key: "{{ prov.access_key }}"
-    aws_secret_key: "{{ prov.secret_key }}"
-    name: "{{ prov.ssh_key }}"
-    region: "{{ prov.region }}"
+    aws_access_key: "{{ infos.access_key }}"
+    aws_secret_key: "{{ infos.secret_key }}"
+    name: "{{ infos.ssh_key }}"
+    region: "{{ infos.region }}"
   register: ec2_key_result
 
 - name: Save private key
-  copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ prov.private_key }}" mode=0600
+  copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ infos.private_key }}" mode=0600
   when: ec2_key_result.changed
 ...

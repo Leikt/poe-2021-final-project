@@ -7,12 +7,12 @@
 - name: prepare the connexion with aws
   include: tasks/preparation.yml
   vars:
-    prov: "{{ prov }}"
+    infos: "{{ prov }}"
 
 - name: instanciate machines
   include: tasks/provide.yml
   vars:
-    prov: "{{ prov }}"
+    infos: "{{ prov }}"
     machine:
       name: G4_TEST
       group: TEST

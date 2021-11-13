@@ -7,7 +7,7 @@ groups:
   - name: frontend
     machines:
     - name: G4_frontend
-      count: 2
+      count: 1
   - name: backend_application
     machines:
     - name: G4_applications
@@ -15,5 +15,5 @@ groups:
   - name: backend_data
     machines:
     - name: G4_data
-      count: 3
+      count: 1
 ...

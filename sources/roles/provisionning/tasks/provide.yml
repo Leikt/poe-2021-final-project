@@ -1,5 +1,5 @@
 ---
-- name: "Creation de {{ machine.count }} instance(s) de {machine.name}"
+- name: "Creation de {{ machine.count }} instance(s) de {{ machine.name }}"
   ec2:
     aws_access_key: "{{ infos.access_key }}"
     aws_secret_key: "{{ infos.secret_key }}"

@@ -9,5 +9,5 @@
   register: result
 
 - name: Save group info ec2
-  copy: content="{{ result[0] }}" dest="~/result" mode=0755
+  copy: content="{{ result }}" dest="~/result" mode=0755
 ...

@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  gather_facts: no
+  roles:
+    - prepare_master
+    - role: provide_instances
+      when: provides is defined
+  post_tasks:
+    - meta: refresh_inventory
+
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - install_docker
+...

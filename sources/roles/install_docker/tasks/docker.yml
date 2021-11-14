@@ -31,6 +31,8 @@
 
 - name: install python docker SDK
   pip:
-    name: docker
+    name:
+      - docker-py
+      - docker
     state: present
 ...

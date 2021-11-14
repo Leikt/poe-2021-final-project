@@ -16,10 +16,10 @@
 
 - name: start gitlab docker
   docker_container:
-    name: "gitlab"
-    image: "gitlab/gitlab-ee:latest"
+    name: gitlab
+    image: gitlab/gitlab-ee:latest
     restart_policy: always
-    hostname: "gitlab.example.com"
+    hostname: gitlab.example.com
     ports:
       - "80:80"
       - "443:443"

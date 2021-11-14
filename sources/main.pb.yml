@@ -1,12 +1,10 @@
 ---
-- name: Prepare SSH connection
-  hosts: localhost
+- hosts: localhost
   gather_facts: no
   roles:
     - prepare_master
 
-- name: Provide new instances
-  hosts: localhost
+- hosts: localhost
   gather_facts: no
   roles:
     - provide_instances

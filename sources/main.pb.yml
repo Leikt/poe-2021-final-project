@@ -9,7 +9,6 @@
 - hosts: all
   become: yes
   become_method: sudo
-  key_file: ~/.ssh/aws.pem
   roles:
     - install_docker
 ...

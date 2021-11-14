@@ -5,6 +5,13 @@
     - prepare_master
     - role: provide_instances
       when: provides is defined
+
+- hosts: all
+  become: yes
+  become_method: sudo
+  key_file: ~/.ssh/aws.pem
+  roles:
+    - install_docker
 ...
 
 #- name: provide new network instances

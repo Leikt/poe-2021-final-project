@@ -18,7 +18,7 @@ eval `ssh-agent -s`
 ssh-add $key_name
 
 # Configure comfy ssh
-echo -e "\nHost $host\n\tHostname $hostname\n\tUser $user\n\tIdentityFile$key_name\n\tPort=$port" >> ~/.ssh/config
+echo -e "\nHost $host\n\tHostname $hostname\n\tUser $user\n\tIdentityFile $key_name\n\tPort=$port" >> ~/.ssh/config
 
 # Send the public key to the server
 key_content=`cat $key_name.pub`

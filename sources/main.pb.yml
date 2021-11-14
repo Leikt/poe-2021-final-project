@@ -14,5 +14,22 @@
   roles:
     - prepare_target
     - install_docker
+
+#- hosts: data
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    -
+
+- hosts: application
+  become: yes
+  become_method: sudo
+  roles:
     - install_gitlab
+
+#- hosts: frontend
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    -
 ...

@@ -2,12 +2,12 @@
 - name: setup gitlab data dir
   file:
     path: ~/gitlab/data
-    state: present
+    state: directory
 
 - name: setup gitlab logs dir
   file:
     path: ~/gitlab/logs
-    state: present
+    state: directory
 
 - name: setup gitlab config dir
   file:

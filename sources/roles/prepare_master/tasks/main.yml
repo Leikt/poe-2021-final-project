@@ -22,14 +22,4 @@
 - name: Add private key to ssh-agent
   shell: "eval `ssh-agent -s` && ssh-add {{ connection.private_key }}"
 
-- name: remove ancient inventory file
-  file:
-    path: "{{ inventory }}"
-    state: absent
-
-- name: create empty inventory file
-  file:
-    path: "{{ inventory }}"
-    mode: '0755'
-    state: touch
 ...

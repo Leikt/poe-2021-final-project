@@ -1,15 +1,13 @@
 ---
-- name: "create inventory group {{ v_group.name }}"
-  shell: "echo '[{{ v_group.name }}]' >> {{ v_connection.inventory }}"
+- name: "create inventory group {{ group.name }}"
+  shell: "echo '[{{ group.name }}]' >> {{ inventory }}"
 
-- name: "provide machines of group {{ v_group.name }}"
+- name: "provide machines of group {{ group.name }}"
   include: tasks/provide.yml
   vars:
-    connection: "{{ v_connection }}"
     machine: "{{ item }}"
-    machines: "{{ v_machines }}"
-  loop: "{{ v_group.machines }}"
+  loop: "{{ group.machines }}"
 
 - name: "add empty line in inventory file"
-  shell: "echo '' >> {{ v_connection.inventory }}"
+  shell: "echo '' >> {{ inventory }}"
 ...

@@ -1,19 +1,14 @@
 ---
-- name: include provisionning variables
-  include_vars:
-    file: vars/connection.yml
-    name: var_connection
+- name: remove ancient inventory file
+  file:
+    path: "{{ inventory }}"
+    state: absent
 
-- name: include machines to create
-  include_vars:
-    file: vars/machines.yml
-    name: var_machines
-
-- name: prepare the connection with aws
-  include: tasks/preparation.yml
-  vars:
-    connection: "{{ var_connection }}"
-    machines: "{{ var_machines }}"
+- name: create empty inventory file
+  file:
+    path: "{{ inventory }}"
+    mode: '0755'
+    state: touch
 
 - name: init instances list
   set_fact:
@@ -22,11 +17,8 @@
 - name: instanciate machines of each groups
   include: tasks/provide_group.yml
   vars:
-    v_connection: "{{ var_connection }}"
-    v_group: "{{ item }}"
-    v_machines: "{{ var_machines }}"
-    v_instances: "{{ instances }}"
-  loop: "{{ var_machines.groups }}"
+    group: "{{ item }}"
+  loop: "{{ machines_groups }}"
 
 - name: Wait for connection
   delegate_to: "{{ item.public_dns_name }}"

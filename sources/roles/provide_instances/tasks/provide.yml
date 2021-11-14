@@ -1,20 +1,15 @@
 ---
-# Require variables
-# connection : access_key, secret_key, ssh_key
-# machines : image, type, region, subnet
-# machine : name, count
-
 - name: "Creation de {{ machine.count }} instance(s) : nom={{ machine.name }}"
   ec2:
-    aws_access_key: "{{ connection.access_key }}"
-    aws_secret_key: "{{ connection.secret_key }}"
-    key_name: "{{ connection.ssh_key }}"
+    aws_access_key: "{{ aws.access_key }}"
+    aws_secret_key: "{{ aws.secret_key }}"
+    key_name: "{{ account_private_key.ssh_key }}"
 
-    image: "{{ machines.image }}"
-    instance_type: "{{ machines.type }}"
-    region: "{{ machines.region }}"
-    vpc_subnet_id: "{{ machines.subnet_id }}"
+    region: "{{ aws.region }}"
+    vpc_subnet_id: "{{ aws.subnet_id }}"
 
+    image: "{{ machine.image }}"
+    instance_type: "{{ machine.type }}"
     count: "{{ machine.count }}"
     instance_tags:
        Name: "{{ machine.name }}"

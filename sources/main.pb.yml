@@ -1,0 +1,24 @@
+---
+- name: Prepare SSH connection
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - prepare_master
+
+- name: Provide new instances
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - provide_instances
+  when: provides is defined
+...
+
+#- name: provide new network instances
+#  import_playbook: provisionning.pb.yml
+#  when: provides is defined
+
+#- hosts: localhost
+#  tasks:
+#    - name: run configuration playbook with inventory
+#      shell: "ansible-playbook configuration.pb.yml -i ~/inventory.ini"
+...

@@ -35,7 +35,4 @@
 
 - name: update python pip
   shell: "pip3 install --upgrade pip"
-
-#- name: install python docker SDK
-#  shell: "pip3 install docker"
 ...

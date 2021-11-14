@@ -1,4 +1,4 @@
 ---
 - include: tasks/docker.yml
-#- include: tasks/docker-compose.yml
+- include: tasks/docker-compose.yml
 ...

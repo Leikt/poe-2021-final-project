@@ -28,4 +28,9 @@
       - containerd.io
     state: present
     update_cache: yes
+
+- name: install python docker SDK
+  pip:
+    name: docker
+    state: present
 ...

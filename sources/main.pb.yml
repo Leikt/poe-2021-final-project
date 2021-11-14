@@ -3,12 +3,8 @@
   gather_facts: no
   roles:
     - prepare_master
-
-- hosts: localhost
-  gather_facts: no
-  roles:
-    - provide_instances
-  when: provides is defined
+    - role: provide_instances
+      when: provides is defined
 ...
 
 #- name: provide new network instances

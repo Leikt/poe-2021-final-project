@@ -18,18 +18,18 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
-#
-#  - name: application
-#    machines:
-#    - name: G4_applications
-#      image: ami-0b30f38d939dd4b54
-#      type: t3.xlarge
-#      count: 1
-#
-#  - name: data
-#    machines:
-#    - name: G4_data
-#      image: ami-0b30f38d939dd4b54
-#      type: t3.xlarge
-#      count: 1
+
+  - name: application
+    machines:
+    - name: G4_applications
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
+
+  - name: data
+    machines:
+    - name: G4_data
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
 ...

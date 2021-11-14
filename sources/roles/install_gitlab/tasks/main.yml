@@ -16,9 +16,9 @@
 
 - name: start gitlab docker
   docker_container:
-    name: gitlab/gitlab-ee:latest
+    name: "gitlab/gitlab-ee:latest"
     restart_policy: always
-    hostname: gitlab.poeg4.com
+    hostname: "gitlab.poeg4.com"
     ports:
       - "80:80"
       - "443:443"

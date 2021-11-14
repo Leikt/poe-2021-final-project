@@ -14,3 +14,9 @@
 * Mise en place d'un cahier des charges
 * Préparation 
 * Organisation du travail en équipe
+
+## 13 / 11 / 2021
+* Mise en place du provisionning
+
+## 14 / 11 / 2021
+* Installation de docker

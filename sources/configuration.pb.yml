@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  tasks:
-    - debug:
-        msg: "On commence la configuration ici !"
+  role:
+    - install_docker
 ...

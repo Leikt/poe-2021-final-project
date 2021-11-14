@@ -12,7 +12,7 @@
 - name: setup gitlab config dir
   file:
     path: ~/gitlab/config
-    state: present
+    state: directory
 
 - name: start gitlab docker
   docker_container:

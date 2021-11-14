@@ -30,7 +30,5 @@
     update_cache: yes
 
 - name: install python docker SDK
-  pip:
-    name: docker
-    state: latest
+  shell: "pip3 install docker"
 ...

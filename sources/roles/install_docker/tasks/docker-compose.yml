@@ -5,6 +5,6 @@
 - name: apply executable permissions
   shell: chmod +x /usr/local/bin/docker-compose
 
-#- name: create symbolic link
-#  shell: ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+- name: create symbolic link
+  shell: ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 ...

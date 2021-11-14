@@ -11,4 +11,18 @@
       - docker-logrotate
       - docker-engine
     state: absent
+
+- name: add docker repository
+  yum_repository:
+    name: docker-ce
+    baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+
+- name: install docker
+  yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: present
+    update_cache: yes
 ...

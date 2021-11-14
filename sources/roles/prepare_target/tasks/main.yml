@@ -9,7 +9,4 @@
     name: python2-pip
     state: present
     update_cache: yes
-
-- name: update pip
-  shell: "pip install --upgrade pip"
 ...

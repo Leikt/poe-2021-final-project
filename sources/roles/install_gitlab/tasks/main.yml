@@ -1,0 +1,30 @@
+---
+- name: setup gitlab data dir
+  file:
+    path: ~/gitlab/data
+    state: present
+
+- name: setup gitlab logs dir
+  file:
+    path: ~/gitlab/logs
+    state: present
+
+- name: setup gitlab config dir
+  file:
+    path: ~/gitlab/config
+    state: present
+
+- name: start gitlab docker
+  docker_container:
+    name: gitlab/gitlab-ee:latest
+    restart_policy: always
+    hostname: gitlab.poeg4.com
+    ports:
+      - "80:80"
+      - "443:443"
+      - "22:22"
+    volumes:
+      - ~/gitlab/data:/var/opt/gitlab
+      - ~/gitlab/logs:/var/log/gitlab
+      - ~/gitlab/config:/etc/gitlab
+...

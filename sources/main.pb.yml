@@ -6,8 +6,9 @@
     - role: provide_instances
       when: provides is defined
 
+- meta: refresh_inventory
+
 - hosts: all
-  meta: refresh_inventory
   become: yes
   become_method: sudo
   roles:

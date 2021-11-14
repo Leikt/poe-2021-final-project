@@ -1,6 +1,7 @@
 ---
-- hosts: localhost
-  tasks:
-    - debug:
-        msg: "On commence la configuration ici !"
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - install_docker
 ...

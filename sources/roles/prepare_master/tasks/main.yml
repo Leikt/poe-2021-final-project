@@ -5,7 +5,7 @@
       - botocore
       - boto
       - boto3
-    state: latest
+    state: present
 
 - name: Creation de clef
   ec2_key:

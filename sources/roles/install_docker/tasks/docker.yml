@@ -29,11 +29,6 @@
     state: present
     update_cache: yes
 
-- name: install python pip
-  yum:
-    name: python2-pip
-    state: present
-
 - name: install python docker SDK
   pip:
     name: docker

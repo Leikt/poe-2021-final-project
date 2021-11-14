@@ -12,6 +12,7 @@
   become: yes
   become_method: sudo
   roles:
+    - prepare_target
     - install_docker
     - install_gitlab
 ...

@@ -34,5 +34,5 @@
     name:
       - docker-py
       - docker
-    state: present
+    state: latest
 ...

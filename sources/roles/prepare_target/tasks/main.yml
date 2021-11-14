@@ -11,5 +11,5 @@
     update_cache: yes
 
 - name: update pip
-  shell: pip install --upgrade pip
+  shell: "pip install --upgrade pip"
 ...

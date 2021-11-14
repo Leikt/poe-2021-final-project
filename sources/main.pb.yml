@@ -7,18 +7,9 @@
       when: provides is defined
 
 - hosts: all
+  meta: refresh_inventory
   become: yes
   become_method: sudo
   roles:
     - install_docker
-...
-
-#- name: provide new network instances
-#  import_playbook: provisionning.pb.yml
-#  when: provides is defined
-
-#- hosts: localhost
-#  tasks:
-#    - name: run configuration playbook with inventory
-#      shell: "ansible-playbook configuration.pb.yml -i ~/inventory.ini"
 ...

@@ -21,5 +21,5 @@ ssh-add $key_name
 echo -e "\nHost $host\n\tHostname $hostname\n\tUser $user\n\tIdentityFile $key_name\n\tPort=$port" >> ~/.ssh/config
 
 # Send the public key to the server
-key_content=`cat $key_name.pub`
-ssh $host "echo $key_content >> .ssh/authorized_keys"
+key=`cat $key_name.pub`
+ssh $user@$hostname "echo '$key' >> .ssh/authorized_keys"

@@ -20,7 +20,7 @@
 - name: add docker repository
   shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 
-- name: install docker
+- name: install docker pacakges
   yum:
     name:
       - docker-ce

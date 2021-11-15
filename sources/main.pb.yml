@@ -25,7 +25,7 @@
   become: yes
   become_method: sudo
   roles:
-    - install_gitlab
+    - setup_application_server
 
 #- hosts: frontend
 #  become: yes

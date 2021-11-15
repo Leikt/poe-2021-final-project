@@ -1,14 +1,6 @@
 ---
-- name: remove ancient inventory file
-  file:
-    path: "{{ inventory }}"
-    state: absent
-
-- name: create empty inventory file
-  file:
-    path: "{{ inventory }}"
-    mode: '0755'
-    state: touch
+- name: reset inventory file
+  shell: "> ~/inventory.ini"
 
 - name: init instances list
   set_fact:

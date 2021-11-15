@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: "{{ ansible_python_interpreter }}"
+
 - name: debug test (a supprimer)
   docker_container:
     image: alpine:latest

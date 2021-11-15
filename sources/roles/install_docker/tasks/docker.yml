@@ -31,4 +31,10 @@
 
 - name: install python docker SDK
   shell: "pip3 install docker"
+
+- name: start docker container
+  service:
+    name: docker
+    enabled: yes
+    state: started
 ...

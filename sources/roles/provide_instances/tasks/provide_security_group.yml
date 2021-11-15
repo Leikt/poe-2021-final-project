@@ -7,22 +7,28 @@
     region: "{{ aws.region }}"
     vpc_id: "{{ aws.vpc_id }}"
 
-    name: "G4_security_group"
-    description: "G4 security group, once to rule them all !"
-    rules:
-      - cidr_ip: 0.0.0.0/0
-        proto: tcp
-        ports:
-          - 80
-        rule_desc: "Allow http traffic"
-      - cidr_ip: 0.0.0.0/0
-        proto: tcp
-        ports:
-          - 443
-        rule_desc: "Allow https traffic"
+    name: "{{ security_group.name }}"
+    description: "{{ security_group.description }}"
+    rules: "{{ security_group.rules }}"
   register: ec2
 
 - name: store security group data
   set_fact:
     security_group: "{{ ec2.group_id }}"
+
+- name: add ansible instance to the security group
+  ec2:
+    aws_access_key: "{{ aws.access_key }}"
+    aws_secret_key: "{{ aws.secret_key }}"
+    key_name: "{{ connection.account_private_key }}"
+
+    region: "{{ aws.region }}"
+    state: running
+
+    instance_id:
+      - "{{ ansible_vm.id }}"
+
+    group_id:
+      - "{{ ansible_vm.main_security_group }}"
+      - "{{ security_group }}"
 ...

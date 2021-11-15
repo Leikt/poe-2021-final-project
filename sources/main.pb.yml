@@ -19,7 +19,6 @@
 #  become: yes
 #  become_method: sudo
 #  roles:
-#    -
 
 - hosts: application
   become: yes
@@ -31,5 +30,4 @@
 #  become: yes
 #  become_method: sudo
 #  roles:
-#    -
 ...

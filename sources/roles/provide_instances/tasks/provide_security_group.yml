@@ -17,7 +17,7 @@
         rule_desc: "Allow http traffic"
       - cidr_ip: 0.0.0.0/0
         proto: tcp
-        prots:
+        ports:
           - 443
         rule_desc: "Allow https traffic"
   register: ec2

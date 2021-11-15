@@ -34,4 +34,24 @@
     name: docker
     enabled: yes
     state: started
+
+- name: install python pip
+  yum:
+    name:
+      - python3-pip
+      - python2-pip
+    state: present
+    update_cache: yes
+
+- name: update python pip
+  shell: "pip3 install --upgrade pip"
+
+- name: update python pip
+  shell: "pip install --upgrade pip"
+
+- name: install python docker (pip3)
+  shell: "pip3 install docker requests"
+
+- name: install python docker (pip)
+  shell: "pip install docker requests"
 ...

@@ -3,7 +3,8 @@
   copy:
     src: composition
     dest: "/home/centos/"
+    mode: "751"
 
-#- name: start containers with docker-compose
-#  shell: "docker-compose -f /home/centos/composition/docker-compose.yml up -d"
+- name: start containers with docker-compose
+  shell: "docker-compose -f /home/centos/composition/docker-compose.yml up -d"
 ...

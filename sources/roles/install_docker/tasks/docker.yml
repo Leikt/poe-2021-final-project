@@ -28,4 +28,10 @@
       - containerd.io
     state: present
     update_cache: yes
+
+- name: start docker service
+  service:
+    name: docker
+    enabled: yes
+    state: started
 ...

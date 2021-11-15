@@ -22,4 +22,17 @@
 - name: Add private key to ssh-agent
   shell: "eval `ssh-agent -s` && ssh-add {{ connection.private_key }}"
 
+- name: install epel-release
+  yum:
+    name: epel-release
+    state: present
+
+- name: install python pip
+  yum:
+    name: python3-pip
+    state: present
+    update_cache: yes
+
+- name: update python pip
+  shell: "pip3 install --upgrade pip"
 ...

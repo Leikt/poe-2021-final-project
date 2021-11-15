@@ -12,5 +12,22 @@
   become: yes
   become_method: sudo
   roles:
+    - prepare_target
     - install_docker
+
+#- hosts: data
+#  become: yes
+#  become_method: sudo
+#  roles:
+
+- hosts: application
+  become: yes
+  become_method: sudo
+  roles:
+    - setup_application_server
+
+#- hosts: frontend
+#  become: yes
+#  become_method: sudo
+#  roles:
 ...

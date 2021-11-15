@@ -1,10 +1,14 @@
 ---
+- name: setup vars
+  vars:
+    wd: "/home/centos/composition/applications"
+
 - name: copy composition files
   copy:
-    src: composition
-    dest: "/home/centos/"
+    src: applications
+    dest: "/home/centos/composition"
     mode: "751"
 
 - name: start containers with docker-compose
-  shell: "docker-compose -f /home/centos/composition/docker-compose.yml up -d"
+  shell: "docker-compose -f {{ wd }}/docker-compose.yml up -d"
 ...

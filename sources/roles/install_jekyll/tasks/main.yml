@@ -1,6 +1,0 @@
----
-- name: debug test (a supprimer)
-  docker_container:
-    image: alpine:latest
-    name: "test"
-...

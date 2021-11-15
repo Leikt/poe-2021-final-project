@@ -46,12 +46,12 @@
 - name: update python pip
   shell: "pip3 install --upgrade pip"
 
-- name: update python pip
-  shell: "pip install --upgrade pip"
+#- name: update python pip
+#  shell: "pip install --upgrade pip"
 
 - name: install python docker (pip3)
   shell: "pip3 install docker requests"
 
-- name: install python docker (pip)
-  shell: "pip install docker requests"
+#- name: install python docker (pip)
+#  shell: "pip install docker requests"
 ...

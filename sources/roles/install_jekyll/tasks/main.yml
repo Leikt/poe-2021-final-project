@@ -1,7 +1,4 @@
 ---
-- debug:
-    msg: "{{ interpreter_python }}"
-
 - name: debug test (a supprimer)
   docker_container:
     image: alpine:latest

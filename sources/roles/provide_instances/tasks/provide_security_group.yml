@@ -3,7 +3,6 @@
   ec2_group:
     aws_access_key: "{{ aws.access_key }}"
     aws_secret_key: "{{ aws.secret_key }}"
-    key_name: "{{ connection.account_private_key }}"
 
     region: "{{ aws.region }}"
     vpc_subnet_id: "{{ aws.subnet_id }}"

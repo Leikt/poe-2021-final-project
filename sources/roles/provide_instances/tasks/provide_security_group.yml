@@ -1,0 +1,28 @@
+---
+- name: create security group
+  ec2_group:
+    aws_access_key: "{{ aws.access_key }}"
+    aws_secret_key: "{{ aws.secret_key }}"
+    key_name: "{{ connection.account_private_key }}"
+
+    region: "{{ aws.region }}"
+    vpc_subnet_id: "{{ aws.subnet_id }}"
+
+    name: "G4_security_group"
+    rules:
+      - cidr_ip: 0.0.0.0/0
+        proto: tcp
+        prots:
+          - 80
+        rule_desc: "Allow http traffic"
+      - cidr_ip: 0.0.0.0/0
+        proto: tcp
+        prots:
+          - 443
+        rule_desc: "Allow https traffic"
+  register: ec2
+
+- name: store security group data
+  set_fact:
+    security_group: "{{ ec2.group_id }}"
+...

@@ -1,14 +1,9 @@
 ---
-- name: remove ancient inventory file
-  file:
-    path: "{{ inventory }}"
-    state: absent
+- name: create security group
+  include: tasks/provide_security_group.yml
 
-- name: create empty inventory file
-  file:
-    path: "{{ inventory }}"
-    mode: '0755'
-    state: touch
+- name: remove ancient inventory file
+  shell: "> ~/inventory.ini"
 
 - name: init instances list
   set_fact:

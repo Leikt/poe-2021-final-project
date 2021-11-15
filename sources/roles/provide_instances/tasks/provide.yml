@@ -14,8 +14,7 @@
     instance_tags:
        Name: "{{ machine.name }}"
 
-    group_id:
-      - "{{ security_group.id }}"
+    group_id: "{{ security_group.id }}"
     assign_public_ip: yes
     wait: yes
   register: ec2

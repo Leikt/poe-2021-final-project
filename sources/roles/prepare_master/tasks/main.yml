@@ -37,5 +37,5 @@
   shell: "pip3 install --upgrade pip"
 
 - name: install python docker
-  shell: "pip3 install docker"
+  shell: "pip3 install docker requests"
 ...

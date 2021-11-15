@@ -36,6 +36,9 @@
 - name: update python pip
   shell: "pip3 install --upgrade pip"
 
-- name: install python docker SDK
-  shell: python2.7 -m pip install docker-py docker
+- name: install python docker SDK for python 2.7
+  shell: python2.7 -m pip install docker==4.4.4
+
+- name: install python docker SDK for python 3
+  shell: python3 -m pip install docker
 ...

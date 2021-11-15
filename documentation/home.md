@@ -8,9 +8,9 @@ Date de fin : 18 novembre 2021
 
 Présentation : 18 novembre 2021
 ### Membres du projet
-* ...
-* ...
-* ...
+* Soufyane Lamgari
+* Quentin Le Rouge De Querdavid
+* Mathilde Guiltat
 * Robin LIORET
 ### Principaux logiciels utilisés
 * Github : VCS, wiki

@@ -29,14 +29,6 @@
     state: present
     update_cache: yes
 
-- name: install python docker SDK
-  delegate_to: localhost
-  pip:
-    name:
-      - docker-py
-      - docker
-    state: present
-
 - name: start docker service
   service:
     name: docker

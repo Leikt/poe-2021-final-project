@@ -15,9 +15,7 @@
     state: directory
 
 - name: start alpine container
-  docker_container:
-    name: "AplineTest"
-    image: alpine
+  shell: "docker run -tid --name alpine alpine:latest"
 
 #- name: start gitlab docker
 #  docker_container:

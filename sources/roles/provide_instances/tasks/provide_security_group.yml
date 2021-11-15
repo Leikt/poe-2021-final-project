@@ -29,6 +29,6 @@
       - "{{ ansible_vm.id }}"
 
     group_id:
-      - "{{ ansible_vm.main_security_group }}"
+#      - "{{ ansible_vm.main_security_group }}"
       - "{{ security_group }}"
 ...

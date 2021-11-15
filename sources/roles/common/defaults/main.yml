@@ -13,12 +13,12 @@ aws:
   secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
 
 machines_groups:
-  - name: frontend
-    machines:
-    - name: G4_frontend
-      image: ami-0b30f38d939dd4b54
-      type: t3.xlarge
-      count: 1
+#  - name: frontend
+#    machines:
+#    - name: G4_frontend
+#      image: ami-0b30f38d939dd4b54
+#      type: t3.xlarge
+#      count: 1
 
   - name: application
     machines:
@@ -27,12 +27,12 @@ machines_groups:
       type: t3.xlarge
       count: 1
 
-  - name: data
-    machines:
-    - name: G4_data
-      image: ami-0b30f38d939dd4b54
-      type: t3.xlarge
-      count: 1
+#  - name: data
+#    machines:
+#    - name: G4_data
+#      image: ami-0b30f38d939dd4b54
+#      type: t3.xlarge
+#      count: 1
 
 security_group:
   name: G4_project
@@ -51,5 +51,5 @@ security_group:
 
 ansible_vm:
   id: i-0e39a093a86e546bf
-  main_security_group: sg-02457d8898adbfa34
+#  main_security_group: sg-02457d8898adbfa34
 ...

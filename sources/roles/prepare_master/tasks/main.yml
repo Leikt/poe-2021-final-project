@@ -37,9 +37,5 @@
   shell: "pip3 install --upgrade pip"
 
 - name: install python docker SDK
-  pip:
-    name:
-      - docker-py
-      - docker
-    state: present
+  shell: python2.7 -m pip install docker-py docker
 ...

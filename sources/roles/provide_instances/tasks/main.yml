@@ -1,7 +1,4 @@
 ---
-- name: create security group
-  include: tasks/provide_security_group.yml
-
 - name: remove ancient inventory file
   shell: "> ~/inventory.ini"
 

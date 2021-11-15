@@ -35,19 +35,7 @@ machines_groups:
 #      count: 1
 
 security_group:
-  name: G4_project
-  description:  G4 security group, once to rule them all !
-  rules:
-    - cidr_ip: 0.0.0.0/0
-      proto: tcp
-      ports:
-        - 80
-      rule_desc: "Allow http traffic"
-    - cidr_ip: 0.0.0.0/0
-      proto: tcp
-      ports:
-        - 443
-      rule_desc: "Allow https traffic"
+  id: sg-02457d8898adbfa34
 
 ansible_vm:
   id: i-0e39a093a86e546bf

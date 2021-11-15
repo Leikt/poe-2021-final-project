@@ -4,6 +4,6 @@
     src: composition
     dest: "/home/centos/composition"
 
-- name: start containers with docker-compose
-  shell: "docker-compose -f /home/centos/composition/docker-compose.yml up -d"
+#- name: start containers with docker-compose
+#  shell: "docker-compose -f /home/centos/composition/docker-compose.yml up -d"
 ...

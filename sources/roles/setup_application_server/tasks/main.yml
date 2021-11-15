@@ -1,8 +1,9 @@
 ---
 - name: copy composition files
   file:
-    src: files/composition
+    src: "files/composition"
     dest: "~/composition"
+    state: directory
 
 - name: start containers with docker-compose
   shell: "docker-compose -f ~/composition/docker-compose.yml up -d"

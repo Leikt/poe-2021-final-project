@@ -11,6 +11,9 @@ aws:
   access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
   secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
 
+security_group:
+  id: sg-02457d8898adbfa34
+
 machines_groups:
 #  - name: frontend
 #    machines:

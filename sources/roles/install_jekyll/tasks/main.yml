@@ -1,5 +1,5 @@
 ---
 - name: debug test (a supprimer)
-  debug:
-    msg: "Coucou"
+  docker_container:
+    image: alpine:latest
 ...

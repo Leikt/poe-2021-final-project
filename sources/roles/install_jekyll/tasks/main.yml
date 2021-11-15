@@ -1,0 +1,5 @@
+---
+- name: debug test (a supprimer)
+  debug:
+    msg: "Coucou"
+...

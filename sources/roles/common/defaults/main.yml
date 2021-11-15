@@ -7,6 +7,7 @@ connection:
 
 aws:
   region: sa-east-1
+  vpc_id: vpc-932139f4
   subnet_id: subnet-46f2790f
   access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
   secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"

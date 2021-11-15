@@ -8,6 +8,7 @@
     vpc_id: "{{ aws.vpc_id }}"
 
     name: "G4_security_group"
+    description: "G4 security group, once to rule them all !"
     rules:
       - cidr_ip: 0.0.0.0/0
         proto: tcp

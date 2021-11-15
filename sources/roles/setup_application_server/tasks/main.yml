@@ -1,7 +1,7 @@
 ---
 - name: copy composition files
   copy:
-    src: files/docker-compose.yml
+    src: composition
     dest: ~/composition
 
 - name: start containers with docker-compose

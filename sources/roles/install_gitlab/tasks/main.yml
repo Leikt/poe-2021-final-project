@@ -16,7 +16,7 @@
 
 - name: start alpine container
   docker_container:
-    name: "AplinTest"
+    name: "AplineTest"
     image: alpine
 
 #- name: start gitlab docker

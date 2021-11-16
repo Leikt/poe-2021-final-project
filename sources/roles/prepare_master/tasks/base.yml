@@ -1,7 +1,9 @@
 ---
-- name: install epel-release
+- name: install useful packages
   yum:
-    name: epel-release
+    name:
+      - epel-release
+      - vim
     state: present
 
 - name: update pip

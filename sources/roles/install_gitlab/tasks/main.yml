@@ -17,6 +17,10 @@
     restart: yes
     recreate: yes
     privileged: yes
+    exposed:
+      - 443
+      - 80
+      - 22
     ports:
       - 4500:443
       - 4501:80

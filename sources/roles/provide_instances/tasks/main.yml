@@ -2,9 +2,6 @@
 - name: reset inventory file
   shell: "> {{ inventory }}"
 
-- name: add localhost to frontend
-  shell: "echo [frontend] >> {{ inventory }}; echo localhost >> {{ inventory }}; echo >> {{ inventory }}"
-
 - name: init instances list
   set_fact:
     instances: []

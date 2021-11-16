@@ -1,40 +1,12 @@
 ---
-- name: remove old docker packages
-  yum:
-    name:
-      - docker
-      - docker-client
-      - docker-client-latest
-      - docker-common
-      - docker-latest
-      - docker-latest-logrotate
-      - docker-logrotate
-      - docker-engine
-    state: absent
+- name: install docker
+  yum: name=docker state=latest
 
-- name: install yum-utils
-  yum:
-    name: yum-utils
-    state: latest
+- name: check docker service
+  command: systemctl enable --now docker
 
-- name: add docker repository
-  shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
-- name: install docker packages
-  yum:
-    name:
-      - docker-ce
-      - docker-ce-cli
-      - containerd.io
-      - python-docker
-    state: latest
-    update_cache: yes
-
-- name: start docker service
-  service:
-    name: docker
-    enabled: yes
-    state: restarted
+- name: install python-docker
+  yum: name=python-docker state=latest enablerepo=extras
 
 - name: create test container
   docker_container:
@@ -43,8 +15,6 @@
     ports:
       - 4000:4000
     privileged: true
-
-# Test docker installation
 
 - name: check container status
   command: docker ps

@@ -11,7 +11,7 @@
 - name: start jekyll container
   docker_container:
     name: jekyll
-    command: jekyll serve
+    command: jekyll serve --watch
     image: jekyll/jekyll:stable
     restart: yes
     recreate: yes

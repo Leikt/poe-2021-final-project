@@ -15,7 +15,7 @@
 - name: install yum-utils
   yum:
     name: yum-utils
-    state: present
+    state: latest
 
 - name: add docker repository
   shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
@@ -26,7 +26,7 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
-    state: present
+    state: latest
     update_cache: yes
 
 - name: install docker sdk for python

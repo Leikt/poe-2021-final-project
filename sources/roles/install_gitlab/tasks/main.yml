@@ -1,0 +1,28 @@
+---
+- name: create gitlab home directories
+  file:
+    path: "./gitlab/{{ item }}"
+    state: directory
+    owner: centos
+    group: centos
+  loop:
+    - config
+    - logs
+    - data
+
+- name: start gitlab container
+  docker_container:
+    name: gitlab
+    image: gitlab/gitlab-ee:latest
+    restart: yes
+    recreate: yes
+    privileged: yes
+    ports:
+      - 4500:443
+      - 4501:80
+      - 4502:22
+    volumes:
+      - ./gitlab/config:/etc/gitlab:Z
+      - ./gitlab/logs:/var/log/gitlab:Z
+      - ./gitlab/data:/var/opt/gitlab:Z
+...

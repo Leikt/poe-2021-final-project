@@ -45,5 +45,5 @@
   service:
     name: docker
     enabled: yes
-    state: started
+    state: restarted
 ...

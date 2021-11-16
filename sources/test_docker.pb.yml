@@ -11,10 +11,6 @@
 #            password: "a-dockerhub-password"
     - name: Dock Container
       docker_container:
-        name: Alpine
-        state: started
-        image: "alpine:latest"
-        pull: true
-#        ports:
-#          - "5000:5000"
+        name: alpine
+        image: alpine:latest
 ...

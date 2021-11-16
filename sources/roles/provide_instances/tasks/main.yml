@@ -1,6 +1,6 @@
 ---
 - name: reset inventory file
-  shell: "> ~/inventory.ini"
+  shell: "> {{ inventory }}"
 
 - name: init instances list
   set_fact:

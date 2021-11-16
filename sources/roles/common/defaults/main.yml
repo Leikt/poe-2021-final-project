@@ -22,16 +22,30 @@ machines_groups:
       type: t3.xlarge
       count: 1
 
-  - name: application
+  - name: site1
     machines:
-    - name: G4_applications
+    - name: G4_site1
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
 
-  - name: data
+  - name: site2
     machines:
-    - name: G4_data
+    - name: G4_site2
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
+
+  - name: site3
+    machines:
+    - name: G4_site3
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
+
+  - name: sauvegarde
+    machines:
+    - name: G4_save
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1

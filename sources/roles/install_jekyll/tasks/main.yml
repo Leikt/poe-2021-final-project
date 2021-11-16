@@ -7,6 +7,8 @@
     src: sample_website
     dest: .
     mode: 0755
+    owner: centos
+    group: centos
 
 - name: start jekyll container
   docker_container:

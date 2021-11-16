@@ -50,10 +50,10 @@
     recreate: yes
     volumes:
       - ./gitlab-runner/config:/etc/gitlab-runner
-    command: register \
+    command: "register \
     --non-interactive --executor 'docker' --docker-image alpine:latest --url http://15.228.93.207/\
     --registration-token '4k2zjCr_UizC5KyNjpQT' --description 'docker-runner' --tag-list 'docker,aws'\
-    --run-untagged='true' --locked='false' --access-level='not_protected'
+    --run-untagged='true' --locked='false' --access-level='not_protected'"
 
 #- name: Installation d'un runner Gitlab
 #  command: "docker run -d --name gitlab-runner --restart always \

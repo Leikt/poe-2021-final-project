@@ -1,9 +1,29 @@
 ---
-- name: install pip
-  yum:
-    name: python-pip
-    state: latest
+- name: install docker
+  yum: name=docker state=latest
 
-- include: tasks/docker.yml
-- include: tasks/docker-compose.yml
+- name: check docker service
+  command: systemctl enable --now docker
+
+- name: install python-docker
+  yum: name=python-docker state=latest enablerepo=extras
+
+- name: create test container
+  docker_container:
+    name: alpine_test
+    image: alpine:latest
+    ports:
+      - 4000:4000
+    privileged: true
+
+- name: check container status
+  command: docker ps
+  register: result
+
+- debug: var=result.stdout
+
+- name: delete test container
+  docker_container:
+    name: alpine_test
+    state: absent
 ...

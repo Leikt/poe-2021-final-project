@@ -20,10 +20,11 @@
 #  become_method: sudo
 #  roles:
 
-#- hosts: application
-#  become: yes
-#  become_method: sudo
-#  roles:
+- hosts: application
+  become: yes
+  become_method: sudo
+  roles:
+    - install_docker
 
 #- hosts: frontend
 #  become: yes

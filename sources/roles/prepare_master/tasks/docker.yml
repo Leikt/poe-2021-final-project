@@ -1,0 +1,8 @@
+---
+- name: install python docker
+  pip:
+    name:
+      - docker
+      - docker-py
+    state: present
+...

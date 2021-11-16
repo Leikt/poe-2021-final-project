@@ -1,0 +1,11 @@
+---
+- name: install epel-release
+  yum:
+    name: epel-release
+    state: present
+
+- name: update pip
+  pip:
+    name: pip
+    state: latest
+...

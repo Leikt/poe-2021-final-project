@@ -8,7 +8,7 @@ source /etc/profile.d/bash_completion.sh
 
 # Update pip
 pip install --upgrade pip
-pip3 install --upgrade pip3
+pip3 install --upgrade pip
 
 # Install python ansible and docker
 python3 -m pip install -y --user ansible docker

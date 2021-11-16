@@ -1,5 +1,9 @@
 ---
-- name: debug test (a supprimer)
-  debug:
-    msg: "Coucou"
+#- name: debug test (a supprimer)
+#  debug:
+#    msg: "Coucou"
+- name: start jekyll container
+  docker_container:
+    image: alpine:latest
+    name: alpine
 ...

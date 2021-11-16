@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm -rf poe-2021-final-project
+git clone https://github.com/Leikt/poe-2021-final-project.git
+cd ~/poe-2021-final-project
+git checkout $1
+
+shift
+cd sources
+ansible-playbook $@

@@ -1,4 +1,9 @@
 ---
+- name: install pip
+  yum:
+    name: python-pip
+    state: latest
+
 - include: tasks/docker.yml
 - include: tasks/docker-compose.yml
 ...

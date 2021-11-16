@@ -1,0 +1,14 @@
+---
+- name: remove python docker packages
+  pip:
+    name:
+      - docker
+      - docker-py
+    state: absent
+
+- name: install python docker
+  pip:
+    name:
+      - docker
+    state: present
+...

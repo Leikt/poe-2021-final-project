@@ -15,12 +15,12 @@ security_group:
   id: sg-02457d8898adbfa34
 
 machines_groups:
-#  - name: frontend
-#    machines:
-#    - name: G4_frontend
-#      image: ami-0b30f38d939dd4b54
-#      type: t3.xlarge
-#      count: 1
+  - name: frontend
+    machines:
+    - name: G4_frontend
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
 
   - name: application
     machines:
@@ -29,10 +29,10 @@ machines_groups:
       type: t3.xlarge
       count: 1
 
-#  - name: data
-#    machines:
-#    - name: G4_data
-#      image: ami-0b30f38d939dd4b54
-#      type: t3.xlarge
-#      count: 1
+  - name: data
+    machines:
+    - name: G4_data
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
 ...

@@ -1,0 +1,8 @@
+---
+- name: install useful packages
+  yum:
+    name:
+      - epel-release
+      - vim
+    state: present
+...

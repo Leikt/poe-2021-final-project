@@ -1,9 +1,23 @@
 ---
-#- name: debug test (a supprimer)
-#  debug:
-#    msg: "Coucou"
+# Sources:
+# https://github.com/envygeeks/jekyll-docker/blob/master/README.md
+
+- name: copy sample site
+  copy:
+    path: sample_website
+    dest: .
+    mode: 0755
+
 - name: start jekyll container
   docker_container:
-    image: alpine:latest
-    name: alpine
+    name: jekyll
+    command: jekyll serve
+    image: jekyll/jekyll:stable
+    restart: yes
+    recreate: yes
+    privileged: yes
+    volumes:
+      - ./sample_website:/srv/jekyll
+    ports:
+      - 4000:4000
 ...

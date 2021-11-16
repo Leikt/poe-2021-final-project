@@ -47,9 +47,10 @@
   docker_container:
     name: gitlab-runner-register
     image: gitlab/gitlab-runner:latest
-    auto_remove: yes
+    recreate: yes
     volumes:
       - ./gitlab-runner/config:/etc/gitlab-runner
+
 
 #- name: Installation d'un runner Gitlab
 #  command: "docker run -d --name gitlab-runner --restart always \

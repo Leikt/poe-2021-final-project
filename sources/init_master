@@ -13,3 +13,6 @@ pip3 install --upgrade pip
 
 echo "Install ansible"
 python3 -m pip install --user ansible docker
+
+echo "create a link to run file"
+ln -s run ~/run

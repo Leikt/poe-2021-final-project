@@ -10,7 +10,8 @@
     - logs
     - data
 
-- include_role: start_docker
+- include_role:
+    name: start_docker
 
 - name: start gitlab container
   docker_container:

@@ -3,7 +3,7 @@
   shell: "> {{ inventory }}"
 
 - name: add localhost to frontend
-  shell: "echo [frontend] >> {{ inventory }}; echo 172.31.21.252 >> {{ inventory }}; echo >> {{ inventory }}"
+  shell: "echo [frontend] >> {{ inventory }}; echo localhost >> {{ inventory }}; echo >> {{ inventory }}"
 
 - name: init instances list
   set_fact:

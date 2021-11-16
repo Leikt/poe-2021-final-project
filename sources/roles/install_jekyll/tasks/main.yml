@@ -4,7 +4,7 @@
 
 - name: copy sample site
   copy:
-    path: sample_website
+    src: sample_website
     dest: .
     mode: 0755
 

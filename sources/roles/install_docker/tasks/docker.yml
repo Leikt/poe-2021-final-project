@@ -29,7 +29,14 @@
     state: present
     update_cache: yes
 
-- name: install docker dsk for python
+- name: install docker sdk for python
+  pip:
+    name:
+      - docker
+      - docker-py
+    state: absent
+
+- name: install docker sdk for python
   pip:
     name: docker
     state: latest

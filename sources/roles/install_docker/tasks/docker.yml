@@ -26,24 +26,34 @@
       - docker-ce
       - docker-ce-cli
       - containerd.io
+      - python-docker
     state: latest
     update_cache: yes
-
-- name: install docker sdk for python
-  pip:
-    name:
-      - docker
-      - docker-py
-    state: absent
-
-- name: install docker sdk for python
-  pip:
-    name: docker
-    state: latest
 
 - name: start docker service
   service:
     name: docker
     enabled: yes
     state: restarted
+
+- name: create test container
+  docker_container:
+    name: alpine_test
+    image: alpine:latest
+    ports:
+      - 4000:4000
+    privileged: true
+
+# Test docker installation
+
+- name: check container status
+  command: docker ps
+  register: result
+
+- debug: var=result.stdout
+
+- name: delete test container
+  docker_container:
+    name: alpine_test
+    state: absent
 ...

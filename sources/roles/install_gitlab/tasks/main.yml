@@ -18,9 +18,9 @@
     recreate: yes
     privileged: yes
     ports:
-      - 443:443
-      - 80:80
-      - 22:22
+      - 4500:443
+      - 4501:80
+      - 4502:22
     volumes:
       - ./gitlab/config:/etc/gitlab:Z
       - ./gitlab/logs:/var/log/gitlab:Z

@@ -12,4 +12,4 @@ echo "update pip3"
 pip3 install --upgrade pip
 
 echo "Install ansible"
-python3 -m pip install -y --user ansible docker
+python3 -m pip install --user ansible docker

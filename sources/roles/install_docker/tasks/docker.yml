@@ -46,14 +46,4 @@
     name: docker
     enabled: yes
     state: started
-
-- name: test
-  docker_container:
-    image: alpine
-    name: yolo
-
-- name: test
-  docker_container:
-    name: yolo
-    state: absent
 ...

@@ -1,6 +1,9 @@
 ---
 - name: reset inventory file
-  shell: "> ~/inventory.ini"
+  shell: "> {{ inventory }}"
+
+- name: add localhost to frontend
+  shell: "echo [frontend] >> {{ inventory }}; echo 172.31.21.252 >> {{ inventory }}; echo >> {{ inventory }}"
 
 - name: init instances list
   set_fact:

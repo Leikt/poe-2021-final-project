@@ -15,21 +15,28 @@ security_group:
   id: sg-02457d8898adbfa34
 
 machines_groups:
-  - name: frontend
+  - name: site1
     machines:
     - name: G4_frontend
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
 
-  - name: application
+  - name: site2
     machines:
     - name: G4_applications
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
 
-  - name: data
+  - name: site3
+    machines:
+    - name: G4_data
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
+
+  - name: sauvegarde
     machines:
     - name: G4_data
       image: ami-0b30f38d939dd4b54

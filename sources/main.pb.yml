@@ -19,19 +19,29 @@
 
 # Specific operations for targets
 
-#- hosts: data
-#  become: yes
-#  become_method: sudo
-#  roles:
-
-- hosts: application
+- hosts: frontend
   become: yes
   become_method: sudo
   roles:
-    - install_jekyll
-
-#- hosts: frontend
+    - install_gitlab
+#    - install_openvpn
+#
+#- hosts: site1
 #  become: yes
 #  become_method: sudo
 #  roles:
+#    - install_apache
+#
+#- hosts: site2
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - install_tomcat
+#    - isntall_tomcat_app
+#
+#- hosts: site3
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - install_python_app
 ...

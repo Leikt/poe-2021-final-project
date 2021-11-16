@@ -17,6 +17,13 @@
     - prepare_target
     - install_docker
 
+- hosts: localhost
+  become: yes
+  become_method: sudo
+  roles:
+    - prepare_target
+    - install_docker
+
 # Specific operations for targets
 
 - hosts: localhost

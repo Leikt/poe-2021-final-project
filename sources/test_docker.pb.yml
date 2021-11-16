@@ -4,7 +4,17 @@
   become_method: sudo
   remote_user: stagiaire
   tasks:
-    - docker_container:
-        image: alpine:latest
-        name: test
+#    - name: log into docker hub registry
+#          docker_login:
+#            email: "leikt.solreihin@gmail.com"
+#            username: "leikt"
+#            password: "a-dockerhub-password"
+    - name: Dock Container
+      docker_container:
+        name: Alpine
+        state: started
+        image: "alpine:latest"
+        pull: true
+#        ports:
+#          - "5000:5000"
 ...

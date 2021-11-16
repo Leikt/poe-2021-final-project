@@ -19,7 +19,8 @@
 
 # Specific operations for targets
 
-- hosts: frontend
+- hosts: localhost
+  gather_facts: no
   become: yes
   become_method: sudo
   roles:

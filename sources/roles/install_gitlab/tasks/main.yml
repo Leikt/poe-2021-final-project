@@ -22,9 +22,9 @@
       - 80
       - 22
     ports:
-      - 4500:443
-      - 4501:80
-      - 4502:22
+      - 0.0.0.0/0:4500:443
+      - 0.0.0.0/0:4501:80
+      - 0.0.0.0/0:4502:22
     volumes:
       - ./gitlab/config:/etc/gitlab:Z
       - ./gitlab/logs:/var/log/gitlab:Z

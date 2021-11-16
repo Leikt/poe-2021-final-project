@@ -5,4 +5,5 @@
       - epel-release
       - vim
     state: present
+
 ...

@@ -6,7 +6,6 @@
       - vim
       - dnf
       - bash-completion
-      - python-pip
     state: present
 
 - name: enable auto-completion

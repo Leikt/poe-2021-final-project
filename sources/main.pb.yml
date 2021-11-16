@@ -24,7 +24,7 @@
   become: yes
   become_method: sudo
   roles:
-    - install_docker
+    - install_jekyll
 
 #- hosts: frontend
 #  become: yes

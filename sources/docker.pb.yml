@@ -1,4 +1,9 @@
 ---
+- hosts: localhost
+  become: yes
+  roles:
+    - install_docker
+
 - hosts: all
   become: yes
   become_method: sudo

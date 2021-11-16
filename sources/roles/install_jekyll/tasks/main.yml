@@ -2,6 +2,11 @@
 # Sources:
 # https://github.com/envygeeks/jekyll-docker/blob/master/README.md
 
+- name: delete existing site
+  file:
+    path: ./sample_website
+    state: absent
+
 - name: copy sample site
   copy:
     src: sample_website

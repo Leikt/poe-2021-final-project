@@ -10,9 +10,6 @@
     - logs
     - data
 
-- include_role:
-    name: start_docker
-
 - name: start gitlab container
   docker_container:
     name: gitlab
@@ -21,9 +18,9 @@
     recreate: yes
     privileged: yes
     ports:
-      - 4500:443
-      - 4501:80
-      - 4502:22
+      - 443:443
+      - 80:80
+      - 22:22
     volumes:
       - ./gitlab/config:/etc/gitlab:Z
       - ./gitlab/logs:/var/log/gitlab:Z

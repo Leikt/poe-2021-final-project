@@ -29,6 +29,11 @@
     state: present
     update_cache: yes
 
+- name: install docker dsk for python
+  pip:
+    name: docker
+    state: latest
+
 - name: start docker service
   service:
     name: docker

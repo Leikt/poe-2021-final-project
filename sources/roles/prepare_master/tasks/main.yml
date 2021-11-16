@@ -1,5 +1,5 @@
 ---
 - include: tasks/base.yml
 - include: tasks/connection.yml
-- include: tasks/docker.yml
+#- include: tasks/docker.yml
 ...

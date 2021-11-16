@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# Install useful package
+echo "install useful package"
 sudo yum install -y epel-release dnf vim bash-completion bash-completion-extras python3 python3-pip
 
-# Enable autocompletion
+echo "enable auto completion"
 source /etc/profile.d/bash_completion.sh
 
-# Update pip
+echo "update pip"
 pip install --upgrade pip
+echo "update pip3"
 pip3 install --upgrade pip
 
-# Install python ansible and docker
+echo "Install ansible"
 python3 -m pip install -y --user ansible docker

@@ -5,9 +5,4 @@
       - epel-release
       - vim
     state: present
-
-- name: update pip
-  pip:
-    name: pip
-    state: latest
 ...

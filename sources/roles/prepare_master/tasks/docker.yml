@@ -11,9 +11,4 @@
     name:
       - docker
     state: present
-
-- name: test
-  docker_container:
-    image: alpine
-    name: yolo
 ...

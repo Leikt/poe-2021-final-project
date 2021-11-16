@@ -3,6 +3,12 @@
   yum:
     name:
       - epel-release
-      - python-pip
+      - vim
+      - dnf
+      - bash-completion
+      - bash-completion-extras
     state: present
+
+- name: enable auto-completion
+  shell: source /etc/profile.d/bash_completion.sh
 ...

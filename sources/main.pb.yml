@@ -20,11 +20,10 @@
 #  become_method: sudo
 #  roles:
 
-- hosts: application
-  become: yes
-  become_method: sudo
-  roles:
-    - install_jekyll
+#- hosts: application
+#  become: yes
+#  become_method: sudo
+#  roles:
 
 #- hosts: frontend
 #  become: yes

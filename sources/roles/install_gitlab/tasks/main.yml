@@ -64,7 +64,7 @@
       retries: 1000
       delay: 10
 
-- when: gitlab_create_runner is defined
+- when: gr_url is defined
   block:
     - name: delete existing gitlab-runner
       shell: docker rm -f gitlab-runner
@@ -80,12 +80,12 @@
       command: 'docker exec -it gitlab-runner gitlab-runner register --non-interactive \
       --executor "docker" \
       --docker-image alpine:latest \
-      --url "http://15.228.93.207/" \
-      --registration-token "4k2zjCr_UizC5KyNjpQT" \
+      --url "{{ gr_url }}"" \
+      --registration-token "{{ gr_token }}" \
       --description "docker-runner" \
       --tag-list "docker,aws" \
       --run-untagged="true" \
       --locked="false" \
       --access-level="not_protected" \
-      --clone-url "http://15.228.93.207/"'
+      --clone-url "{{ gr_url }}"'
 ...

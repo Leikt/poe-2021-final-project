@@ -21,7 +21,8 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
-      volume_size: 20
+      volume:
+        size: 20
 
   - name: site1
     machines:
@@ -29,7 +30,8 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
-      volume_size: 8
+      volume:
+        size: 8
 
   - name: site2
     machines:
@@ -37,7 +39,8 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
-      volume_size: 8
+      volume:
+        size: 8
 
   - name: site3
     machines:
@@ -54,5 +57,6 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
-      volume_size: 20
+      volume:
+        size: 8
 ...

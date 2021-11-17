@@ -53,7 +53,7 @@
 #      - ./gitlab-runner/docker.sock:/var/run/docker.sock
 
 - name: Installation d'un runner Gitlab
-  command: "docker run -d --name gitlab-runner --restart always \
+  command: "docker run -d --name gitlab-runner --recreate --restart always \
   -v './gitlab-runner/config:/etc/gitlab-runner' \
   -v './gitlab-runner/docker.sock:/var/run/docker.sock' \
   gitlab/gitlab-runner:latest"

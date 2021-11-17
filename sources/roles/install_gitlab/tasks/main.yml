@@ -72,20 +72,20 @@
 
     - name: Installation d'un runner Gitlab
       command: "docker run -d --name gitlab-runner --restart always \
-      -v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z \
-      -v /var/run/docker.sock:/var/run/docker.sock:Z \
-      gitlab/gitlab-runner:latest"
+-v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z \
+-v /var/run/docker.sock:/var/run/docker.sock:Z \
+gitlab/gitlab-runner:latest"
 
     - name: Enregistrement du runner
       command: 'docker exec -it gitlab-runner gitlab-runner register --non-interactive \
-      --executor "docker" \
-      --docker-image alpine:latest \
-      --url "{{ gr_url }}"" \
-      --registration-token "{{ gr_token }}" \
-      --description "docker-runner" \
-      --tag-list "docker,aws" \
-      --run-untagged="true" \
-      --locked="false" \
-      --access-level="not_protected" \
-      --clone-url "{{ gr_url }}"'
+--executor "docker" \
+--docker-image alpine:latest \
+--url "{{ gr_url }}"" \
+--registration-token "{{ gr_token }}" \
+--description "docker-runner" \
+--tag-list "docker,aws" \
+--run-untagged="true" \
+--locked="false" \
+--access-level="not_protected" \
+--clone-url "{{ gr_url }}"'
 ...

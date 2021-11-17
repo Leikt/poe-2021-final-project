@@ -25,6 +25,7 @@
   become_method: sudo
   roles:
     - install_gitlab
+    - install_httpd
 #    - install_openvpn
 #
 #- hosts: site1

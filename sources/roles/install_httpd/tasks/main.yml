@@ -1,0 +1,17 @@
+---
+- name: make sure site has a directory
+  file:
+    path: ./site
+    state: directory
+
+- name: install httpd container
+  docker_container:
+    name: httpd
+    image: httpd:latest
+    restart: yes
+    recreate: yes
+    ports:
+      - 8080:80
+    volumes:
+      - ./site:/var/www/html
+...

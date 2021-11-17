@@ -13,7 +13,7 @@
 
 - name: delete config.toml
   file:
-    path: ./gitlab-runner/config.toml
+    path: ./gitlab-runner/config/config.toml
     state: absent
 
 - block:

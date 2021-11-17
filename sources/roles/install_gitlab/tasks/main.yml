@@ -33,7 +33,7 @@
       - ./gitlab/data:/var/opt/gitlab:Z
 
 - name: wait for gitlab to be healthy
-  until: [[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1
+  until: '[[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
   retries: 1000
 
 - name: Installation d'un runner Gitlab

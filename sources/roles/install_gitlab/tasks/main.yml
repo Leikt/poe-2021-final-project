@@ -11,6 +11,11 @@
     - gitlab/
     - gitlab-runner/config
 
+- name: delete config.toml
+  file:
+    path: ./gitlab-runner/config.toml
+    state: absent
+
 - block:
     - name: start gitlab container
       docker_container:

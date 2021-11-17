@@ -33,14 +33,14 @@
 #      - ./gitlab/data:/var/opt/gitlab:Z
 
 - name: wait for gitlab to be healthy
-  shell: '[[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
+  shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
   register: result
   until: result.stdout == "0"
   retries: 1000
   delay: 10
 
 - name: delete existing runner
-  shell: '[[ `docker ps | grep -e gitlab-runner$ && echo 1 || echo 0` ]] && docker rm -f gitlab-runner'
+  shell: '[[ `docker ps | grep -e gitlab-runner$` ]] && docker rm -f gitlab-runner'
 
 - name: Installation d'un runner Gitlab
   command: "docker run -d --name gitlab-runner --restart always \

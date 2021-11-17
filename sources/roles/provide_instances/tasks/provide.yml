@@ -14,6 +14,10 @@
     instance_tags:
        Name: "{{ machine.name }}"
 
+    volumes:
+      - device_name: "{{ machine.volume.name }}"
+        volume_size: "{{ machine.volume.size }}"
+
     group_id: "{{ security_group.id }}"
     assign_public_ip: yes
     wait: yes

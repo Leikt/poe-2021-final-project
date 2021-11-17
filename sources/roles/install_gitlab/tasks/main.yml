@@ -54,8 +54,8 @@
 
 - name: Installation d'un runner Gitlab
   command: "docker run -d --name gitlab-runner --restart always \
-  -v './gitlab-runner/config:/etc/gitlab-runner' \
-  -v './gitlab-runner/docker.sock:/var/run/docker.sock' \
+  -v '/home/centos/gitlab-runner/config:/etc/gitlab-runner' \
+  -v '/home/centos/gitlab-runner/docker.sock:/var/run/docker.sock' \
   gitlab/gitlab-runner:latest"
 
 - name: Enregistrement du runner

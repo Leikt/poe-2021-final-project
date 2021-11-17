@@ -15,5 +15,5 @@
     ports:
       - 8080:80
     volumes:
-      - ./site:/var/www/html
+      - ./site:/usr/local/apache2/htdocs
 ...

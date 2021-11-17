@@ -12,14 +12,6 @@
     - gitlab-runner/config
     - gitlab-runner/docker.sock
 
-#- name: copy gitlab-runner configuration
-#  copy:
-#    src: gitlab-runner/config
-#    dest: .
-#    mode: 0755
-#    owner: centos
-#    group: centos
-
 - name: start gitlab container
   docker_container:
     name: gitlab
@@ -40,48 +32,21 @@
       - ./gitlab/logs:/var/log/gitlab:Z
       - ./gitlab/data:/var/opt/gitlab:Z
 
-#- name: start gitlab-runner container
-#  docker_container:
-#    name: gitlab-runner
-#    image: gitlab/gitlab-runner:latest
-#    restart: yes
-#    recreate: yes
-#    privileged: yes
-#    volumes:
-#      - ./gitlab-runner/config:/etc/gitlab-runner
-#      - ./gitlab-runner/docker.sock:/var/run/docker.sock
-
-#- name: register gitlab-runner
-#  docker_container:
-#    name: gitlab-runner-register
-#    image: gitlab/gitlab-runner:latest
-#    recreate: yes
-#    volumes:
-#      - ./gitlab-runner/config:/etc/gitlab-runner
-#    command: register
-##    command: 'register --non-interactive\
-##    --executor "docker"\
-##    --docker-image alpine:latest\
-##    --url http://15.228.93.207/\
-##    --registration-token "4k2zjCr_UizC5KyNjpQT"\
-##    --description "docker-runner"\
-##    --tag-list "docker,aws"\
-##    --run-untagged="true"\
-##    --locked="false"\
-##    --access-level="not_protected"'
-
 - name: Installation d'un runner Gitlab
-  command: "docker run --rm -d --name gitlab-runner --restart always \
+  command: "docker run -d --name gitlab-runner --restart always \
   -v gitlab-runner:/etc/gitlab-runner \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  gitlab/gitlab-runner:latest register --non-interactive \
-    --executor 'docker' \
-    --docker-image alpine:latest \
-    --url 'http://15.228.93.207/' \
-    --registration-token '4k2zjCr_UizC5KyNjpQT' \
-    --description 'docker-runner' \
-    --tag-list 'docker,aws' \
-    --run-untagged='true' \
-    --locked='false' \
-    --access-level='not_protected'"
+  gitlab/gitlab-runner:latest"
+
+- name: Enregistrement du runner
+  command: "docker exec -it gitlab-runner gitlab-runner register --non-interactive \
+--executor "docker" \
+--docker-image alpine:latest \
+--url "http://15.228.93.207/" \
+--registration-token "4k2zjCr_UizC5KyNjpQT" \
+--description "docker-runner" \
+--tag-list "docker,aws" \
+--run-untagged="true" \
+--locked="false" \
+--access-level="not_protected""
 ...

@@ -22,7 +22,7 @@ machines_groups:
       type: t3.xlarge
       count: 1
       volume:
-        name: /dev/nvme0n1
+        name: /dev/sda
         size: 20
 
   - name: site1
@@ -32,7 +32,7 @@ machines_groups:
       type: t3.xlarge
       count: 1
       volume:
-        name: /dev/nvme0n1
+        name: /dev/sda
         size: 8
 
   - name: site2
@@ -42,7 +42,7 @@ machines_groups:
       type: t3.xlarge
       count: 1
       volume:
-        name: /dev/nvme0n1
+        name: /dev/sda
         size: 8
 
   - name: site3
@@ -52,7 +52,7 @@ machines_groups:
       type: t3.xlarge
       count: 1
       volume:
-        name: /dev/nvme0n1
+        name: /dev/sda
         size: 8
 
   - name: sauvegarde
@@ -62,6 +62,6 @@ machines_groups:
       type: t3.xlarge
       count: 1
       volume:
-        name: /dev/nvme0n1
+        name: /dev/sda
         size: 20
 ...

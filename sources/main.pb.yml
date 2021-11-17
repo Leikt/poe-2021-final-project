@@ -27,11 +27,11 @@
     - install_gitlab
 #    - install_openvpn
 #
-#- hosts: site1
-#  become: yes
-#  become_method: sudo
-#  roles:
-#    - install_apache
+- hosts: site1
+  become: yes
+  become_method: sudo
+  roles:
+    - install_httpd
 #
 #- hosts: site2
 #  become: yes

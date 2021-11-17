@@ -1,0 +1,27 @@
+---
+- name: make sure site has a directory
+  file:
+    path: ./site
+    state: directory
+    owner: centos
+    group: centos
+
+- name: copy reset site script
+  copy:
+    src: reset_site.sh
+    dest: ./
+    mode: 0750
+    owner: centos
+    group: centos
+
+- name: install httpd container
+  docker_container:
+    name: httpd
+    image: httpd:latest
+    restart: yes
+    recreate: yes
+    ports:
+      - 80:80
+    volumes:
+      - ./site:/usr/local/apache2/htdocs
+...

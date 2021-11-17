@@ -1,0 +1,7 @@
+---
+- hosts: site1
+  become: yes
+  become_method: sudo
+  roles:
+    - install_httpd
+...

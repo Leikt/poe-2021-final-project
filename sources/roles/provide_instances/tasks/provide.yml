@@ -1,4 +1,14 @@
 ---
+#- name: create new volume for the new instance
+#  ec2_vol:
+#    aws_access_key: "{{ aws.access_key }}"
+#    aws_secret_key: "{{ aws.secret_key }}"
+#    region: "{{ aws.region }}"
+#
+#    instance: None
+#    volume_size: "{{ machine.volume_size }}"
+#    volume_type: gp2
+
 - name: "Creation de {{ machine.count }} instance(s) : nom={{ machine.name }}"
   ec2:
     aws_access_key: "{{ aws.access_key }}"
@@ -14,14 +24,13 @@
     instance_tags:
        Name: "{{ machine.name }}"
 
-    volumes:
-      - device_name: "{{ machine.volume.name }}"
-        volume_size: "{{ machine.volume.size }}"
-
     group_id: "{{ security_group.id }}"
     assign_public_ip: yes
     wait: yes
   register: ec2
+
+- name: "Save instances infos"
+  shell: "echo {{ ec2.instances }} > ~/instance"
 
 - name: "Add machine {{ machine.name }} to inventory"
   shell: "echo '{{ item.private_ip }}' >> {{ inventory }}"

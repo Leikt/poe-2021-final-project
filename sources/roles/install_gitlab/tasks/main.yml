@@ -12,11 +12,6 @@
     - gitlab-runner/config
     - ./site
 
-- name: check if gitlab preset exists
-  stat:
-    path: ~/gitlab-preset.tar.gz
-  register: preset
-
 - name: copy gitlab preset
   copy:
     src: ~/gitlab-preset.tar.gz

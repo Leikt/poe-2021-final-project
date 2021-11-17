@@ -61,7 +61,8 @@
   --executor "docker" \
   --docker-image alpine:latest \
   --url "http://15.228.93.207/" \
-  --registration-token "4k2zjCr_UizC5KyNjpQT" \
+#  --registration-token "4k2zjCr_UizC5KyNjpQT" \
+  --token "4k2zjCr_UizC5KyNjpQT" \
   --description "docker-runner" \
   --tag-list "docker,aws" \
   --run-untagged="true" \

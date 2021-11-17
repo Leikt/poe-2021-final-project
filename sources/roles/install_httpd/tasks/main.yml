@@ -3,6 +3,8 @@
   file:
     path: ./site
     state: directory
+    owner: centos
+    group: centos
 
 - name: install httpd container
   docker_container:

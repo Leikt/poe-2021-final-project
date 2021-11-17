@@ -12,32 +12,34 @@
     - gitlab-runner/config
     - gitlab-runner/docker.sock
 
-- name: start gitlab container
-  docker_container:
-    name: gitlab
-    image: gitlab/gitlab-ee:latest
-    restart: yes
-    recreate: yes
-    privileged: yes
-    exposed:
-      - 443
-      - 80
-      - 22
-    ports:
-      - 443:443
-      - 80:80
-      - 22:22
-    volumes:
-      - ./gitlab/config:/etc/gitlab:Z
-      - ./gitlab/logs:/var/log/gitlab:Z
-      - ./gitlab/data:/var/opt/gitlab:Z
+- block:
+  when: no_gitlab_create is not defined
+  - name: start gitlab container
+    docker_container:
+      name: gitlab
+      image: gitlab/gitlab-ee:latest
+      restart: yes
+      recreate: yes
+      privileged: yes
+      exposed:
+        - 443
+        - 80
+        - 22
+      ports:
+        - 443:443
+        - 80:80
+        - 22:22
+      volumes:
+        - ./gitlab/config:/etc/gitlab:Z
+        - ./gitlab/logs:/var/log/gitlab:Z
+        - ./gitlab/data:/var/opt/gitlab:Z
 
-- name: wait for gitlab to be healthy
-  shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
-  register: result
-  until: result.stdout == "0"
-  retries: 1000
-  delay: 10
+  - name: wait for gitlab to be healthy
+    shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
+    register: result
+    until: result.stdout == "0"
+    retries: 1000
+    delay: 10
 
 - name: delete existing gitlab
   shell: docker rm -f gitlab-runner

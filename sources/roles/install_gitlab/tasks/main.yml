@@ -10,7 +10,6 @@
     - gitlab/logs
     - gitlab/
     - gitlab-runner/config
-    - gitlab-runner/docker.sock
 
 - block:
     - name: start gitlab container
@@ -41,7 +40,7 @@
       delay: 10
   when: no_gitlab_create is not defined
 
-- name: delete existing gitlab
+- name: delete existing gitlab-runner
   shell: docker rm -f gitlab-runner
   ignore_errors: yes
 

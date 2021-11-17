@@ -37,6 +37,7 @@
           - ./gitlab/logs:/var/log/gitlab:Z
           - ./gitlab/data:/var/opt/gitlab:Z
           - /var/run/docker.sock:/var/run/docker.sock:Z
+          - ./site:/public
 
     - name: wait for gitlab to be healthy
       shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'

@@ -13,7 +13,7 @@
     restart: yes
     recreate: yes
     ports:
-      - 8080:80
+      - 80:80
     volumes:
       - ./site:/usr/local/apache2/htdocs
 ...

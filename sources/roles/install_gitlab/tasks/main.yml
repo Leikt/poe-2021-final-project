@@ -12,21 +12,21 @@
     - gitlab-runner/config
     - ./site
 
-- name: copy gitlab preset
-  copy:
-    src: ~/gitlab-preset.tar.gz
-    dest: ~/
-    owner: centos
-    group: centos
-    mode: 0750
-
-- name: unarchive gitlab preset if it exists
-  unarchive:
-    src: ~/gitlab-preset.tar.gz
-    dest: ~/
-    owner: centos
-    group: centos
-    mode: 0750
+#- name: copy gitlab preset
+#  copy:
+#    src: ~/gitlab-preset.tar.gz
+#    dest: ~/
+#    owner: centos
+#    group: centos
+#    mode: 0750
+#
+#- name: unarchive gitlab preset if it exists
+#  unarchive:
+#    src: ~/gitlab-preset.tar.gz
+#    dest: ~/
+#    owner: centos
+#    group: centos
+#    mode: 0750
 
 - name: delete config.toml
   file:
@@ -64,26 +64,28 @@
       retries: 1000
       delay: 10
 
-- name: delete existing gitlab-runner
-  shell: docker rm -f gitlab-runner
-  ignore_errors: yes
+- when: gitlab_create_runner is defined
+  block:
+    - name: delete existing gitlab-runner
+      shell: docker rm -f gitlab-runner
+      ignore_errors: yes
 
-- name: Installation d'un runner Gitlab
-  command: "docker run -d --name gitlab-runner --restart always \
-  -v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z \
-  -v /var/run/docker.sock:/var/run/docker.sock:Z \
-  gitlab/gitlab-runner:latest"
+    - name: Installation d'un runner Gitlab
+      command: "docker run -d --name gitlab-runner --restart always \
+      -v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z \
+      -v /var/run/docker.sock:/var/run/docker.sock:Z \
+      gitlab/gitlab-runner:latest"
 
-- name: Enregistrement du runner
-  command: 'docker exec -it gitlab-runner gitlab-runner register --non-interactive \
-  --executor "docker" \
-  --docker-image alpine:latest \
-  --url "http://15.228.93.207/" \
-  --registration-token "4k2zjCr_UizC5KyNjpQT" \
-  --description "docker-runner" \
-  --tag-list "docker,aws" \
-  --run-untagged="true" \
-  --locked="false" \
-  --access-level="not_protected" \
-  --clone-url "http://15.228.93.207/"'
+    - name: Enregistrement du runner
+      command: 'docker exec -it gitlab-runner gitlab-runner register --non-interactive \
+      --executor "docker" \
+      --docker-image alpine:latest \
+      --url "http://15.228.93.207/" \
+      --registration-token "4k2zjCr_UizC5KyNjpQT" \
+      --description "docker-runner" \
+      --tag-list "docker,aws" \
+      --run-untagged="true" \
+      --locked="false" \
+      --access-level="not_protected" \
+      --clone-url "http://15.228.93.207/"'
 ...

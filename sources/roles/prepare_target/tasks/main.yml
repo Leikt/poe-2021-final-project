@@ -10,4 +10,10 @@
 
 - name: enable auto-completion
   shell: source /etc/profile.d/bash_completion.sh
+
+- name: disable SELinux
+  lineinfile:
+    path: /etc/selinux/config
+    regexp: ^SELINUX=*
+    line: SELINUX=permissive
 ...

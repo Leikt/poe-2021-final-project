@@ -52,7 +52,7 @@
   gitlab/gitlab-runner:latest"
 
 - name: Enregistrement du runner
-  command: 'sudo run -d --rm \
+  command: 'sudo docker run -d --rm \
   -v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z \
   -v /var/run/docker.sock:/var/run/docker.sock:Z \
   gitlab/gitlab-runner:latest \

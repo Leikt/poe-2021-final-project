@@ -66,5 +66,6 @@
   --tag-list "docker,aws" \
   --run-untagged="true" \
   --locked="false" \
-  --access-level="not_protected"'
+  --access-level="not_protected" \
+  --clone-url "http://15.228.93.207/"'
 ...

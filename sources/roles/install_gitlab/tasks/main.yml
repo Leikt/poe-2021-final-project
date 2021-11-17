@@ -39,8 +39,12 @@
   retries: 1000
   delay: 10
 
+- name: get existing gitlab
+  shell: docker rm -f gitlab-runner
+  ignore_errors: yes
+
 - name: Installation d'un runner Gitlab
-  command: "docker run -d --name gitlab-runner --rm \
+  command: "docker run -d --name gitlab-runner --rm always \
   -v '/home/centos/gitlab-runner/config:/etc/gitlab-runner:Z' \
   -v '/var/run/docker.sock:/var/run/docker.sock:Z' \
   gitlab/gitlab-runner:latest"

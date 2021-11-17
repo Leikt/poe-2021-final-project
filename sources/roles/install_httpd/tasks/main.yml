@@ -10,7 +10,7 @@
   copy:
     src: reset_site.sh
     dest: ./
-    mode: 750
+    mode: 0750
     owner: centos
     group: centos
 

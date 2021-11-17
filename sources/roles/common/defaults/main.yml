@@ -22,7 +22,7 @@ machines_groups:
       type: t3.xlarge
       count: 1
       volume:
-        name: /dev/nvme0n2
+        name: /dev/sda
         size: 20
 
   - name: site1

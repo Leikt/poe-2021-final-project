@@ -15,7 +15,7 @@
        Name: "{{ machine.name }}"
 
     volumes:
-      - device_name: "{{ machine.volume.name }}"
+      - device_name: joker # "{{ machine.volume.name }}"
         volume_size: "{{ machine.volume.size }}"
 
     group_id: "{{ security_group.id }}"

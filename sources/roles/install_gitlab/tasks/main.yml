@@ -12,22 +12,6 @@
     - gitlab-runner/config
     - ./site
 
-#- name: copy gitlab preset
-#  copy:
-#    src: ~/gitlab-preset.tar.gz
-#    dest: ~/
-#    owner: centos
-#    group: centos
-#    mode: 0750
-#
-#- name: unarchive gitlab preset if it exists
-#  unarchive:
-#    src: ~/gitlab-preset.tar.gz
-#    dest: ~/
-#    owner: centos
-#    group: centos
-#    mode: 0750
-
 - name: delete config.toml
   file:
     path: ./gitlab-runner/config/config.toml

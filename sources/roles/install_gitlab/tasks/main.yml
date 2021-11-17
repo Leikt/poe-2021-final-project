@@ -52,7 +52,11 @@
   gitlab/gitlab-runner:latest"
 
 - name: Enregistrement du runner
-  command: 'sudo docker exec -it gitlab-runner gitlab-runner register --non-interactive \
+  command: 'sudo run -d --rm \
+  -v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z \
+  -v /var/run/docker.sock:/var/run/docker.sock:Z \
+  gitlab/gitlab-runner:latest \
+  register --non-interactive \
   --executor "docker" \
   --docker-image alpine:latest \
   --url "http://15.228.93.207/" \

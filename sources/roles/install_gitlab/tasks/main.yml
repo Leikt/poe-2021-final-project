@@ -31,7 +31,7 @@
       - ./gitlab/config:/etc/gitlab:Z
       - ./gitlab/logs:/var/log/gitlab:Z
       - ./gitlab/data:/var/opt/gitlab:Z
-  when: no_gitlab is not defined
+  when: no_gitlab_recreate is not defined
 
 - name: wait for gitlab to be healthy
   shell: '[[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'

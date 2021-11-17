@@ -31,12 +31,10 @@
       - ./gitlab/config:/etc/gitlab:Z
       - ./gitlab/logs:/var/log/gitlab:Z
       - ./gitlab/data:/var/opt/gitlab:Z
-    healthcheck:
-      interval: 10s
-      timeout: 1m
-      start_period: 10s
-      retries: 1000
-      test: ["CMD-SHELL", '[[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1']
+
+- name: wait for gitlab to be healthy
+  until: [[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1
+  retries: 1000
 
 - name: Installation d'un runner Gitlab
   command: "docker run -d --name gitlab-runner --restart always \

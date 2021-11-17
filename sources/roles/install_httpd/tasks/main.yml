@@ -6,6 +6,14 @@
     owner: centos
     group: centos
 
+- name: copy reset site script
+  copy:
+    src: reset_site.sh
+    dest: ./
+    mode: 750
+    owner: centos
+    group: centos
+
 - name: install httpd container
   docker_container:
     name: httpd

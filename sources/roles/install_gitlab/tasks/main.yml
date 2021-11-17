@@ -12,6 +12,20 @@
     - gitlab-runner/config
     - ./site
 
+- name: check if gitlab preset exists
+  stat:
+    path: ~/gitlab-preset.tar.gz
+  register: preset
+
+- name: unarchive gitlab preset if it exists
+  when: preset.stat.exists
+  unarchive:
+    src: ~/gitlab-preset.tar.gz
+    dest: ~/
+    owner: centos
+    group: centos
+    mode: 0750
+
 - name: delete config.toml
   file:
     path: ./gitlab-runner/config/config.toml

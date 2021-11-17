@@ -33,7 +33,7 @@
       - ./gitlab/data:/var/opt/gitlab:Z
 
 - name: wait for gitlab to be healthy
-  shell: [[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1
+  shell: '[[ `sudo docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
   register: result
   until: result.stdout == "0"
   retries: 1000

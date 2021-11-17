@@ -37,7 +37,7 @@
     region: "{{ aws.region }}"
     instance: "{{ instance.id }}"
     id: "{{ instance.block_device_mapping['/dev/sda1'].volume_id }}"
-    volume_size: "{{ machine.volume_size }}"
+    volume_size: "{{ machine.volume.size }}"
   loop: "{{ ec2.instances }}"
   loop_control:
     loop_var: instance

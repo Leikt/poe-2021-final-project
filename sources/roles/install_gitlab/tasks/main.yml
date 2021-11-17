@@ -50,13 +50,13 @@
 
 - name: Enregistrement du runner
   command: 'docker exec -it gitlab-runner gitlab-runner register --non-interactive \
---executor "docker" \
---docker-image alpine:latest \
---url "http://15.228.93.207/" \
---registration-token "4k2zjCr_UizC5KyNjpQT" \
---description "docker-runner" \
---tag-list "docker,aws" \
---run-untagged="true" \
---locked="false" \
---access-level="not_protected"'
+  --executor "docker" \
+  --docker-image alpine:latest \
+  --url "http://15.228.93.207/" \
+  --registration-token "4k2zjCr_UizC5KyNjpQT" \
+  --description "docker-runner" \
+  --tag-list "docker,aws" \
+  --run-untagged="true" \
+  --locked="false" \
+  --access-level="not_protected"'
 ...

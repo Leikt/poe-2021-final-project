@@ -32,7 +32,7 @@
 - name: "Resize volume"
   ec2_vol:
     modify_volume: yes
-    id: "{{ item.block_device_mapping./dev/sda1.volume_id }}"
+    id: "{{ item.block_device_mapping['/dev/sda1'].volume_id }}"
 
 #- name: "Save instances infos"
 #  shell: "echo {{ ec2.instances }} > ~/instance"

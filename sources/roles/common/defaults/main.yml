@@ -31,30 +31,30 @@ machines_groups:
         volume:
           size: 8
 
-  - name: site2
-    machines:
-    - name: G4_site2
-      image: ami-0b30f38d939dd4b54
-      type: t3.xlarge
-      count: 1
-      volume:
-        size: 8
+#  - name: site2
+#    machines:
+#    - name: G4_site2
+#      image: ami-0b30f38d939dd4b54
+#      type: t3.xlarge
+#      count: 1
+#      volume:
+#        size: 8
+#
+#  - name: site3
+#    machines:
+#    - name: G4_site3
+#      image: ami-0b30f38d939dd4b54
+#      type: t3.xlarge
+#      count: 1
+#      volume:
+#        size: 8
 
-  - name: site3
-    machines:
-    - name: G4_site3
-      image: ami-0b30f38d939dd4b54
-      type: t3.xlarge
-      count: 1
-      volume:
-        size: 8
-
-  - name: sauvegarde
-    machines:
-    - name: G4_save
-      image: ami-0b30f38d939dd4b54
-      type: t3.xlarge
-      count: 1
-      volume:
-        size: 20
+#  - name: sauvegarde
+#    machines:
+#    - name: G4_save
+#      image: ami-0b30f38d939dd4b54
+#      type: t3.xlarge
+#      count: 1
+#      volume:
+#        size: 20
 ...

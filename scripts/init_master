@@ -14,14 +14,14 @@ source /etc/profile.d/bash_completion.sh
 
 echo -e "\ninstall ansible in virtual environment"
 python3 -m pip install virtualenv
-python3 -m virtualenv $PWD/ansible
-source $PWD/ansible/bin/activate
+python3 -m virtualenv $PWD/venv
+source $PWD/venv/bin/activate
 python3 -m pip install ansible
 
 echo -e "\ncopy run file"
 cp $PWD/poe-2021-final-project/scripts/run $PWD/run
 
 echo -e "\nupdate permissions"
-chown -R $1:$1 $PWD/ansible
+chown -R $1:$1 $PWD/venv
 chown -R $1:$1 $PWD/poe-2021-final-project
 chown $1:$1 $PWD/run

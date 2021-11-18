@@ -45,4 +45,10 @@
 #  become_method: sudo
 #  roles:
 #    - install_python_app
+
+#- hosts: save
+#  become: yes
+#  become_method: sudo
+#  roles:
+#    - install_nfs
 ...

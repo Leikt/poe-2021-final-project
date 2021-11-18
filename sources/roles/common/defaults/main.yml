@@ -5,31 +5,34 @@ aws:
   account_private_key: "~/.ssh/aws"
   private_key: "~/.ssh/aws.pem"
   region: sa-east-1
-  subnet_id: subnet-46f2790f
   access_key: "{{ lookup('file', '~/aws_access/access_key') }}"
   secret_key: "{{ lookup('file', '~/aws_access/secret_key') }}"
 
 security_group:
-  id: sg-02457d8898adbfa34
+  id: sg-0fdbe517ef51e0957
 
 machines_groups:
   - name: frontend
     machines:
-      - name: G4_frontend
-        image: ami-0b30f38d939dd4b54
-        type: t3.xlarge
-        count: 1
-        volume:
-          size: 20
+    - name: G4_frontend
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
+      subnet:
+        id: subnet-0889844d1ea585fb6
+      volume:
+        size: 20
 
   - name: site1
     machines:
-      - name: G4_site1
-        image: ami-0b30f38d939dd4b54
-        type: t3.xlarge
-        count: 1
-        volume:
-          size: 8
+    - name: G4_site1
+      image: ami-0b30f38d939dd4b54
+      type: t3.xlarge
+      count: 1
+      subnet:
+        id: subnet-0534d8d32557e9eaa
+      volume:
+        size: 8
 
   - name: site2
     machines:
@@ -37,6 +40,8 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
+      subnet:
+        id: subnet-0534d8d32557e9eaa
       volume:
         size: 8
 
@@ -46,6 +51,8 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
+      subnet:
+        id: subnet-0534d8d32557e9eaa
       volume:
         size: 8
 
@@ -55,6 +62,8 @@ machines_groups:
       image: ami-0b30f38d939dd4b54
       type: t3.xlarge
       count: 1
+      subnet:
+        id: subnet-0534d8d32557e9eaa
       volume:
         size: 20
 ...

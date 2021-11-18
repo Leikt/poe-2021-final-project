@@ -6,7 +6,7 @@
     key_name: "{{ aws.account_private_key }}"
 
     region: "{{ aws.region }}"
-    vpc_subnet_id: "{{ aws.subnet_id }}"
+    vpc_subnet_id: "{{ machine.subnet.id }}"
 
     image: "{{ machine.image }}"
     instance_type: "{{ machine.type }}"

@@ -32,12 +32,12 @@ cp poe-2021-final-project/scripts/run run
 ```
 3. Pour lancer le playbook principal avec provisionnement
 ````shell
-./run development main.pb.yml -e provides=
+source venv;./run development main.pb.yml -e provides=
 ````
 Cela va créer les VM et les paramétrer.
 4. Une fois le projet gitlab créé, il faut créer un runner. Pour cela :
 ````shell
-./run development gitlab-runners.pb.yml -e url=<gitlab_url> -e token=<project_token>
+source venv;./run development gitlab-runners.pb.yml -e url=<gitlab_url> -e token=<project_token>
 ````
 
 Les ip (locales) des différentes machines se trouvent dans le fichier ~/inventory.ini

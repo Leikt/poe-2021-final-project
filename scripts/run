@@ -1,8 +1,9 @@
 #!/bin/bash
 
-rm -rf poe-2021-final-project
+source venv
+rm -rf $PWD/poe-2021-final-project
 git clone https://github.com/Leikt/poe-2021-final-project.git
-cd ./poe-2021-final-project
+cd $PWD/poe-2021-final-project
 git checkout $1
 
 shift

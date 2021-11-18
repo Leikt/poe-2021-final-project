@@ -27,7 +27,7 @@ Sur une nouvelle instance et dans le répertoire de l'utilisateur.
 ```shell
 sudo yum install -y git;\
 git clone https://github.com/Leikt/poe-2021-final-project.git;\
-sudo ./poe-2021-final-project/scripts/init_master
+sudo ./poe-2021-final-project/scripts/init_master $USER
 ```
 3. Pour lancer le playbook principal avec provisionnement.
 ````shell

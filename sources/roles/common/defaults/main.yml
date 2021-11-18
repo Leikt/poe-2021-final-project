@@ -1,11 +1,9 @@
 ---
 inventory: "~/inventory.ini"
 
-connection:
+aws:
   account_private_key: "~/.ssh/aws"
   private_key: "~/.ssh/aws.pem"
-
-aws:
   region: sa-east-1
   subnet_id: subnet-46f2790f
   access_key: "{{ lookup('file', '~/aws_access/access_key') }}"

@@ -7,6 +7,11 @@
       - boto3
     state: present
 
+- name: check if key exists
+  stat:
+    path: "{{ connection.account_private_key }}"
+  register: key_stat
+
 - name: Creation de clef
   ec2_key:
     aws_access_key: "{{ aws.access_key }}"
@@ -17,7 +22,8 @@
 
 - name: Save private key
   copy: content="{{ ec2_key_result.key.private_key }}" dest="{{ connection.private_key }}" mode=0600
-  when: ec2_key_result.changed
+#  when: ec2_key_result.changed
+  when: not key_stat.stat.exists
 
 - name: Add private key to ssh-agent
   shell: "eval `ssh-agent -s` && ssh-add {{ connection.private_key }}"

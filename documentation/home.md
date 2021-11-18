@@ -20,7 +20,11 @@ Présentation : 18 novembre 2021
 * Discord : communication
 ## Utiliser ce répertoire
 Sur une nouvelle instance :
-1. Installer git
+1. Copier la clé privé aws.pem vers le dossier .ssh de la machine
+2. Créer un dossier aws_access ainsi que deux fichiers :
+   - aws_access/access_key contenant la clé publique du profil IAM
+   - aws_access/secret_key contenant la clé privée du profil IAM
+3. Installer git
 ````shell
 sudo yum install -y git
 ````

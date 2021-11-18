@@ -12,6 +12,7 @@ source /etc/profile.d/bash_completion.sh
 #echo "Install ansible"
 #yum install -y ansible
 
+echo -e "\ninstall ansible in virtual environment"
 python3 -m pip install virtualenv
 python3 -m virtualenv $PWD/ansible
 source $PWD/ansible/bin/activate

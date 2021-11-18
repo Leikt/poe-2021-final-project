@@ -28,5 +28,5 @@
   when: ec2_key_result.changed
 
 - name: Add private key to ssh-agent
-  shell: "eval `ssh-agent -s` && ssh-add {{ aws.private_key }}"
+  shell: "eval `ssh-agent -s`; ssh-add {{ aws.private_key }}"
 ...

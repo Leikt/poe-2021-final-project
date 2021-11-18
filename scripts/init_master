@@ -11,4 +11,4 @@ echo "Install ansible"
 yum install -y ansible
 
 echo "copy run file"
-cp poe-2021-final-project/run ~/run
+cp poe-2021-final-project/scripts/run ~/run

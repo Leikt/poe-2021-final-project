@@ -17,57 +17,33 @@
     path: ./gitlab-runner/config/config.toml
     state: absent
 
-- when: no_gitlab_create is not defined
-  block:
-    - name: start gitlab container
-      docker_container:
-        name: gitlab
-        image: gitlab/gitlab-ee:latest
-        restart: yes
-        recreate: yes
-        privileged: yes
-        exposed:
-          - 443
-          - 80
-          - 22
-        ports:
-          - 443:443
-          - 80:80
-          - 22:22
-        volumes:
-          - ./gitlab/config:/etc/gitlab:Z
-          - ./gitlab/logs:/var/log/gitlab:Z
-          - ./gitlab/data:/var/opt/gitlab:Z
-          - /var/run/docker.sock:/var/run/docker.sock:Z
-          - ./site:/public:Z
+- name: start gitlab container
+  docker_container:
+    name: gitlab
+    image: gitlab/gitlab-ee:latest
+    restart: yes
+    recreate: yes
+    privileged: yes
+    exposed:
+      - 443
+      - 80
+      - 22
+    ports:
+      - 443:443
+      - 80:80
+      - 22:22
+    volumes:
+      - ./gitlab/config:/etc/gitlab:Z
+      - ./gitlab/logs:/var/log/gitlab:Z
+      - ./gitlab/data:/var/opt/gitlab:Z
+      - /var/run/docker.sock:/var/run/docker.sock:Z
+      - ./site:/public:Z
 
-    - name: wait for gitlab to be healthy
-      shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
-      register: result
-      until: result.stdout == "0"
-      retries: 1000
-      delay: 10
+- name: wait for gitlab to be healthy
+  shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
+  register: result
+  until: result.stdout == "0"
+  retries: 1000
+  delay: 10
 
-- name: delete existing gitlab-runner
-  shell: docker rm -f gitlab-runner
-  ignore_errors: yes
-  when: gr_url is defined
-
-- name: Installation d'un runner Gitlab
-  command: "docker run -d --name gitlab-runner --restart always -v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z -v /var/run/docker.sock:/var/run/docker.sock:Z gitlab/gitlab-runner:latest"
-  when: gr_url is defined
-
-- name: Enregistrement du runner
-  command: 'docker exec -it gitlab-runner gitlab-runner register --non-interactive \
-            --executor "docker" \
-            --docker-image alpine:latest \
-            --url "{{ gr_url }}" \
-            --registration-token "{{ gr_token }}" \
-            --description "docker-runner" \
-            --tag-list "docker,aws" \
-            --run-untagged="true" \
-            --locked="false" \
-            --access-level="not_protected" \
-            --clone-url "{{ gr_url }}"'
-  when: gr_url is defined
 ...

@@ -16,6 +16,7 @@ Présentation : 18 novembre 2021
 * Github : VCS, wiki
 * PyCharm Community : Edition des codes ([Téléchargement](https://www.jetbrains.com/fr-fr/pycharm/download/))
 * VirtualBox : Machines virtuelles
+* AWS : services clouds
 * Docker : gestion des containers
 * Discord : communication
 ## Utiliser ce répertoire

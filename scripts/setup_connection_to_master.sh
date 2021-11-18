@@ -1,4 +1,5 @@
 #!/bin/bash
+# Run this file on your local host
 
 # Variables
 key_name=~/.ssh/aws_poe_pf

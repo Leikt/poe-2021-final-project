@@ -26,7 +26,7 @@
   roles:
     - install_gitlab
 #    - install_openvpn
-#
+
 - hosts: site1
   become: yes
   become_method: sudo

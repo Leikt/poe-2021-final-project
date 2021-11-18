@@ -18,5 +18,23 @@ Présentation : 18 novembre 2021
 * VirtualBox : Machines virtuelles
 * Docker : gestion des containers
 * Discord : communication
-## Cahier des charges
-TODO
+## Utiliser ce répertoire
+Sur une nouvelle instance :
+1. Installer git
+````shell
+sudo yum install -y git
+````
+2. Lancer
+```shell
+git clone https://github.com/Leikt/poe-2021-final-project.git
+source poe-2021-final-project/scripts/init_master
+```
+3. Pour lancer le playbook principal avec provisionnement
+````shell
+./run development main.pb.yml -e provides=
+````
+Cela va créer les VM et les paramétrer.
+4. Une fois le projet gitlab créé, il faut créer un runner. Pour cela :
+````shell
+./run development gitlab-runners.pb.yml -e url=<gitlab_url> -e token=<project_token>
+````

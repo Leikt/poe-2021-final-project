@@ -1,8 +1,6 @@
 ---
 # Operations to do one master
 - hosts: localhost
-  become: yes
-  become_method: sudo
   gather_facts: no
   roles:
     - prepare_master

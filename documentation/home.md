@@ -20,10 +20,11 @@ Présentation : 18 novembre 2021
 * Discord : communication
 ## Utiliser ce répertoire
 Sur une nouvelle instance et dans le répertoire de l'utilisateur.
-1. Créer un dossier aws_access ainsi que deux fichiers :
+1. Si des VMs ont déjà été créé avec l'utilisateur IAM, copier la clé aws.pem dans .ssh
+2. Créer un dossier aws_access ainsi que deux fichiers :
    - aws_access/access_key contenant la clé publique du profil IAM
    - aws_access/secret_key contenant la clé privée du profil IAM
-2. Lancer (copier / coller la commande)
+3. Lancer (copier / coller la commande)
 ```shell
 sudo yum install -y git;\
 git clone https://github.com/Leikt/poe-2021-final-project.git;\

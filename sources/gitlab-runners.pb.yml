@@ -10,6 +10,13 @@
 #    shell: docker rm -f gitlab-runner
 #    ignore_errors: yes
 
+  - name: wait for gitlab container to be healthy
+    shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
+    register: result
+    until: result.stdout == "0"
+    retries: 32
+    delay: 10
+
   - name: Installation d'un runner Gitlab
     command: "docker run -d --name gitlab-runner --restart always -v /home/centos/gitlab-runner/config:/etc/gitlab-runner:Z -v /var/run/docker.sock:/var/run/docker.sock:Z gitlab/gitlab-runner:latest"
     ignore_errors: yes

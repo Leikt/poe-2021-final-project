@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source venv
+source $PWD/ansible/bin/activate
 rm -rf $PWD/poe-2021-final-project
 git clone https://github.com/Leikt/poe-2021-final-project.git
 cd $PWD/poe-2021-final-project

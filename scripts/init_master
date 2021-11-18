@@ -16,7 +16,6 @@ source $PWD/ansible/bin/activate
 python3 -m pip install ansible
 chown -R $1:$1 $PWD/ansible
 chown -R $1:$1 $PWD/poe-2021-final-project/scripts/run
-ln -s $PWD/ansible/bin/activate $PWD/venv
 
 echo "copy run file"
 cp $PWD/poe-2021-final-project/scripts/run $PWD/run

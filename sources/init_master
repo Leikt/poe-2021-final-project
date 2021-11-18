@@ -1,8 +1,8 @@
 #!/bin/bash
-# Script to run once on a new centos ansible master
+# Script to run once on a new centos7 ansible master
 
 echo "install useful package"
-yum install -y epel-release dnf vim bash-completion bash-completion-extras python3 python3-pip
+yum install -y epel-release dnf vim bash-completion python3 python3-pip
 
 echo "enable auto completion"
 source /etc/profile.d/bash_completion.sh

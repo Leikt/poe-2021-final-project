@@ -24,14 +24,12 @@ Sur une nouvelle instance :
 2. Créer un dossier aws_access ainsi que deux fichiers :
    - aws_access/access_key contenant la clé publique du profil IAM
    - aws_access/secret_key contenant la clé privée du profil IAM
-3. Installer git
-````shell
-sudo yum install -y git
-````
-2. Lancer
+2. Lancer (copier / coller la commande)
 ```shell
-git clone https://github.com/Leikt/poe-2021-final-project.git
-source poe-2021-final-project/scripts/init_master
+sudo yum install -y git;\
+git clone https://github.com/Leikt/poe-2021-final-project.git;\
+sudo ./poe-2021-final-project/scripts/init_master;\
+cp poe-2021-final-project/scripts/run run
 ```
 3. Pour lancer le playbook principal avec provisionnement
 ````shell
@@ -42,3 +40,5 @@ Cela va créer les VM et les paramétrer.
 ````shell
 ./run development gitlab-runners.pb.yml -e url=<gitlab_url> -e token=<project_token>
 ````
+
+Les ip (locales) des différentes machines se trouvent dans le fichier ~/inventory.ini

@@ -1,4 +1,6 @@
 ---
+# gr_url:  registration url of the runner
+# gr_token: registration token of the runner
 - hosts: frontend
   become: yes
   become_method: sudo

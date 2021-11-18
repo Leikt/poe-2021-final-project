@@ -39,11 +39,10 @@
       - /var/run/docker.sock:/var/run/docker.sock:Z
       - ./site:/public:Z
 
-- name: wait for gitlab to be healthy
-  shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
-  register: result
-  until: result.stdout == "0"
-  retries: 1000
-  delay: 10
-
+#- name: wait for gitlab to be healthy
+#  shell: '[[ `docker ps | grep -e gitlab$ | grep \(healthy\)` ]] && echo 0 || echo 1'
+#  register: result
+#  until: result.stdout == "0"
+#  retries: 1000
+#  delay: 10
 ...

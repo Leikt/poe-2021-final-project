@@ -20,8 +20,7 @@ Présentation : 18 novembre 2021
 * Discord : communication
 ## Utiliser ce répertoire
 Sur une nouvelle instance :
-1. Copier la clé privé aws.pem vers le dossier .ssh de la machine
-2. Créer un dossier aws_access ainsi que deux fichiers :
+1. Créer un dossier aws_access ainsi que deux fichiers :
    - aws_access/access_key contenant la clé publique du profil IAM
    - aws_access/secret_key contenant la clé privée du profil IAM
 2. Lancer (copier / coller la commande)

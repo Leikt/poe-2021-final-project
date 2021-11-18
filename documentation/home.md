@@ -19,7 +19,7 @@ Présentation : 18 novembre 2021
 * Docker : gestion des containers
 * Discord : communication
 ## Utiliser ce répertoire
-Sur une nouvelle instance :
+Sur une nouvelle instance et dans le répertoire de l'utilisateur.
 1. Créer un dossier aws_access ainsi que deux fichiers :
    - aws_access/access_key contenant la clé publique du profil IAM
    - aws_access/secret_key contenant la clé privée du profil IAM
@@ -27,10 +27,9 @@ Sur une nouvelle instance :
 ```shell
 sudo yum install -y git;\
 git clone https://github.com/Leikt/poe-2021-final-project.git;\
-sudo ./poe-2021-final-project/scripts/init_master;\
-cp poe-2021-final-project/scripts/run run
+sudo ./poe-2021-final-project/scripts/init_master
 ```
-3. Pour lancer le playbook principal avec provisionnement
+3. Pour lancer le playbook principal avec provisionnement.
 ````shell
 ./run development main.pb.yml -e provides=
 ````

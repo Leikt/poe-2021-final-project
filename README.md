@@ -31,13 +31,13 @@ sudo yum install -y git;\
 git clone https://github.com/Leikt/poe-2021-final-project.git;\
 sudo ./poe-2021-final-project/scripts/init_master $USER
 ```
-3. Pour lancer le playbook principal avec provisionnement.
+4. Pour lancer le playbook principal avec provisionnement.
 ````shell
 ./run development main.pb.yml -e provides=
 ````
 Cela va créer les VM et les paramétrer. Retirer `-e provides=` pour effectuer une reconfiguration.
 
-4. Une fois le projet gitlab créé, il faut créer un runner. Pour cela :
+5. Une fois le projet gitlab créé, il faut créer un runner. Pour cela :
 ````shell
 ./run development gitlab-runners.pb.yml -e url=<gitlab_url> -e token=<project_token>
 ````
